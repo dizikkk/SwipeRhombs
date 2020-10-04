@@ -97,12 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcb4d47072503974f96cac93789f5f34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectSwipeOnlyAfterRelease: 0
   SWIPE_THRESHOLD: 20
-  leftMove: 0
-  rightMove: 0
-  upMove: 0
-  downMove: 0
+  isMove: 0
 --- !u!50 &3325962688998898926
 Rigidbody2D:
   serializedVersion: 4

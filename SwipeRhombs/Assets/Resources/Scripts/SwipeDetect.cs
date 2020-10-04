@@ -18,7 +18,6 @@ public class SwipeDetect : MonoBehaviour
 
     private Rigidbody2D _rb;
 
-
     [SerializeField] private bool isMove;
     private bool leftMove;
     private bool rightMove;
@@ -106,34 +105,34 @@ public class SwipeDetect : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<NodeRhomb>())
-        {
-            NodeRhomb NR = collision.GetComponent<NodeRhomb>();
-            transform.DOMove(new Vector3(collision.transform.position.x, collision.transform.position.y, -1f), 0.2f);
-            _rb.velocity = new Vector2(0f, 0f);
+            if (collision.GetComponent<NodeRhomb>())
+            {
+                NodeRhomb NR = collision.GetComponent<NodeRhomb>();
+                transform.DOMove(new Vector3(collision.transform.position.x, collision.transform.position.y, -1f), 0.2f);
+                _rb.velocity = new Vector2(0f, 0f);
 
-            if (NR.leftDir == 1)
-                leftMove = true;
-            if (NR.rightDir == 1)
-                rightMove = true;
-            if (NR.upDir == 1)
-                upMove = true;
-            if (NR.downDir == 1)
-                downMove = true;
-        }
+                if (NR.leftDir == 1)
+                    leftMove = true;
+                if (NR.rightDir == 1)
+                    rightMove = true;
+                if (NR.upDir == 1)
+                    upMove = true;
+                if (NR.downDir == 1)
+                    downMove = true;
+            }
 
-        if (collision.tag == "FinishRhomb")
-        {
-            transform.DOMove(new Vector3(collision.transform.position.x, collision.transform.position.y, -1f), 0.2f);
-            _rb.velocity = new Vector2(0f, 0f);
-        }
+            if (collision.tag == "FinishRhomb")
+            {
+                transform.DOMove(new Vector3(collision.transform.position.x, collision.transform.position.y, -1f), 0.2f);
+                _rb.velocity = new Vector2(0f, 0f);
+            }
 
-        if(collision.tag == "StartGameRhomb")
-        {
-            transform.position = new Vector3(collision.transform.position.x, collision.transform.position.y, -1f);
-            _rb.velocity = new Vector2(0f, 0f);
-            StartCoroutine("StartGame");
-        }
+            if (collision.tag == "StartGameRhomb")
+            {
+                transform.position = new Vector3(collision.transform.position.x, collision.transform.position.y, -1f);
+                _rb.velocity = new Vector2(0f, 0f);
+                StartCoroutine("StartGame");
+            }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

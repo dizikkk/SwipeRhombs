@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class DoTweenManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class DoTweenManager : MonoBehaviour
     [SerializeField] private RectTransform retryBtn;
     [SerializeField] private RectTransform freeTrialTextRect;
 
+    [SerializeField] private Image bckLevelPanel;
     [SerializeField] private GameObject freeTrialTextGO;
 
     private float lastTime;
@@ -19,6 +21,7 @@ public class DoTweenManager : MonoBehaviour
     private bool isMenuOpen;
 
     public GameObject FreeTrialTextGO { get => freeTrialTextGO; set => freeTrialTextGO = value; }
+    public Image BckLevelPanel { get => bckLevelPanel; set => bckLevelPanel = value; }
 
     // Start is called before the first frame update
 
@@ -83,6 +86,16 @@ public class DoTweenManager : MonoBehaviour
     public void ToMainMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void ShowLevel()
+    {
+        bckLevelPanel.DOFade(0f, 1f);
+    }
+
+    public void HideLevel()
+    {
+        bckLevelPanel.DOFade(1f, 1f);
     }
 
     IEnumerator RetryCorrutine()

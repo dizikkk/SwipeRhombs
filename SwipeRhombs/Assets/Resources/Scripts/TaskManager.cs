@@ -21,12 +21,18 @@ public class TaskManager : MonoBehaviour
     void Update()
     {
         if (countFinishRhomb == needFinishRhombToWin)
-            StartCoroutine("FinishLevel");
+            FinishLevel();
     }
 
-    IEnumerator FinishLevel()
+    public void FinishLevel()
     {
-        yield return new WaitForSeconds(1.5f);
-        LevelManager._levelManagerInst.SwipeLevel = true;
+        DoTweenManager._DoTweenManagerInst.HideLevel();
+        StartCoroutine(ChangeLevel());
+    }
+
+    IEnumerator ChangeLevel()
+    {
+        yield return new WaitForSeconds(1f);
+        LevelManager._levelManagerInst.SwipeLevel();
     }
 }
