@@ -678,7 +678,16 @@
       <HintPath>D:/GameDev/Projects/SwipeRhombs/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup></ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="LeanCommon.csproj">
+      <Project>{C14A62E9-A812-3B54-D18F-819525AA8C7C}</Project>
+      <Name>LeanCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="LeanTransition.csproj">
+      <Project>{89DE1A57-A9EE-69BC-3F01-2B5E28B456E2}</Project>
+      <Name>LeanTransition</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

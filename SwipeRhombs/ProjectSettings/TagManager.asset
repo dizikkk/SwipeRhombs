@@ -8,6 +8,7 @@ TagManager:
   - NodeRhomb
   - FinishRhomb
   - StartGameRhomb
+  - Rhomb
   layers:
   - Default
   - TransparentFX

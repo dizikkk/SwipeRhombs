@@ -25,8 +25,8 @@ public class SwipeFingerAnim : MonoBehaviour
             lastTime = Time.time;
         }
 
-        if(startAnim)
-        { 
+        if (startAnim)
+        {
             anim.SetBool("isAnim", true);
             startAnim = false;
         }

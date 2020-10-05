@@ -427,6 +427,10 @@ MonoBehaviour:
   rightDir: 1
   upDir: 0
   downDir: 1
+  leftDist: 0
+  rightDist: 21
+  upDist: 0
+  downDist: -28
 --- !u!1 &2943975804742942743
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,6 +556,10 @@ MonoBehaviour:
   rightDir: 0
   upDir: 0
   downDir: 1
+  leftDist: -21
+  rightDist: 0
+  upDist: 0
+  downDist: -28
 --- !u!1 &3637569798183375003
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,6 +685,10 @@ MonoBehaviour:
   rightDir: 0
   upDir: 1
   downDir: 0
+  leftDist: -21
+  rightDist: 0
+  upDist: 14
+  downDist: 0
 --- !u!1 &3647319921412701612
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,6 +814,10 @@ MonoBehaviour:
   rightDir: 0
   upDir: 1
   downDir: 0
+  leftDist: 7
+  rightDist: 0
+  upDist: -14
+  downDist: 0
 --- !u!1 &3994496490589210973
 GameObject:
   m_ObjectHideFlags: 0
@@ -927,6 +943,10 @@ MonoBehaviour:
   rightDir: 1
   upDir: 0
   downDir: 1
+  leftDist: 0
+  rightDist: 21
+  upDist: 0
+  downDist: -28
 --- !u!1 &4707642692716127165
 GameObject:
   m_ObjectHideFlags: 0
@@ -1214,6 +1234,10 @@ MonoBehaviour:
   rightDir: 0
   upDir: 1
   downDir: 0
+  leftDist: -21
+  rightDist: 0
+  upDist: 14
+  downDist: 0
 --- !u!1 &6334079282129230848
 GameObject:
   m_ObjectHideFlags: 0
@@ -1339,6 +1363,10 @@ MonoBehaviour:
   rightDir: 0
   upDir: 0
   downDir: 1
+  leftDist: -21
+  rightDist: 0
+  upDist: 0
+  downDist: -28
 --- !u!1 &8421583126652368249
 GameObject:
   m_ObjectHideFlags: 0
@@ -1464,6 +1492,10 @@ MonoBehaviour:
   rightDir: 0
   upDir: 0
   downDir: 1
+  leftDist: 7
+  rightDist: 0
+  upDist: 0
+  downDist: 0
 --- !u!1001 &110759618357400765
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1550,6 +1582,16 @@ PrefabInstance:
         type: 3}
       propertyPath: rightDir
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5314355556173227522, guid: 48a1b1415e4fa824f8893586a6c04d08,
+        type: 3}
+      propertyPath: rightDist
+      value: -7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5314355556173227522, guid: 48a1b1415e4fa824f8893586a6c04d08,
+        type: 3}
+      propertyPath: upDist
+      value: -14
       objectReference: {fileID: 0}
     - target: {fileID: 5314355556173227523, guid: 48a1b1415e4fa824f8893586a6c04d08,
         type: 3}
@@ -1685,6 +1727,11 @@ PrefabInstance:
         type: 3}
       propertyPath: downDir
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 730176147385143714, guid: 9014f9103f8fcd2449099c991c817e11,
+        type: 3}
+      propertyPath: rightDist
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 1270124586449988835, guid: 9014f9103f8fcd2449099c991c817e11,
         type: 3}
@@ -2425,6 +2472,16 @@ PrefabInstance:
         type: 3}
       propertyPath: leftDir
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5314355556173227522, guid: 48a1b1415e4fa824f8893586a6c04d08,
+        type: 3}
+      propertyPath: rightDist
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 5314355556173227522, guid: 48a1b1415e4fa824f8893586a6c04d08,
+        type: 3}
+      propertyPath: upDist
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 5314355556173227523, guid: 48a1b1415e4fa824f8893586a6c04d08,
         type: 3}
@@ -3581,6 +3638,16 @@ PrefabInstance:
         type: 3}
       propertyPath: rightDir
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 730176147385143714, guid: 9014f9103f8fcd2449099c991c817e11,
+        type: 3}
+      propertyPath: rightDist
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 730176147385143714, guid: 9014f9103f8fcd2449099c991c817e11,
+        type: 3}
+      propertyPath: upDist
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1270124586449988835, guid: 9014f9103f8fcd2449099c991c817e11,
         type: 3}

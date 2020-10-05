@@ -3,21 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using Lean.Transition;
 
 public class SwipeDetect : MonoBehaviour
 {
     public static SwipeDetect _swipeDetectInst;
 
+    float startTime;
+    private float leftDist;
+    private float rightDist;
+    private float upDist;
+    private float downDist;
     private float speed = 5000f;
+    [SerializeField] private float SWIPE_THRESHOLD = 20f;
 
     private Vector2 fingerDown;
     private Vector2 fingerUp;
-    private bool detectSwipeOnlyAfterRelease = false;
-
-    [SerializeField] private float SWIPE_THRESHOLD = 20f;
 
     private Rigidbody2D _rb;
 
+    private bool detectSwipeOnlyAfterRelease = false;
     [SerializeField] private bool isMove;
     private bool leftMove;
     private bool rightMove;
@@ -37,7 +42,7 @@ public class SwipeDetect : MonoBehaviour
     {
 
     }
-
+    
     void FixedUpdate()
     {
         foreach (Touch touch in Input.touches)
@@ -64,11 +69,11 @@ public class SwipeDetect : MonoBehaviour
                 {
                     if (fingerDown.y - fingerUp.y > 0 && upMove && isMove)
                     {
-                        _rb.velocity = new Vector2(0f, speed * Time.fixedDeltaTime);
+                        transform.localPositionTransition(new Vector3(transform.position.x, upDist, -1), 0.5f);
                     }
                     else if (fingerDown.y - fingerUp.y < 0 && downMove && isMove)
                     {
-                        _rb.velocity = new Vector2(0f, -speed * Time.fixedDeltaTime);
+                        transform.localPositionTransition(new Vector3(transform.position.x, downDist, -1), 0.5f);
                     }
                     fingerUp = fingerDown;
                 }
@@ -77,11 +82,11 @@ public class SwipeDetect : MonoBehaviour
                 {
                     if (fingerDown.x - fingerUp.x > 0 && rightMove && isMove)
                     {
-                        _rb.velocity = new Vector2(speed * Time.fixedDeltaTime, 0f);
+                        transform.localPositionTransition(new Vector3(rightDist, transform.position.y, -1), 0.5f);
                     }
                     else if (fingerDown.x - fingerUp.x < 0 && leftMove && isMove)
                     {
-                        _rb.velocity = new Vector2(-speed * Time.fixedDeltaTime, 0f);
+                        transform.localPositionTransition(new Vector3(leftDist, transform.position.y, -1), 0.5f);
                     }
                     fingerUp = fingerDown;
                 }
@@ -105,34 +110,37 @@ public class SwipeDetect : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-            if (collision.GetComponent<NodeRhomb>())
-            {
-                NodeRhomb NR = collision.GetComponent<NodeRhomb>();
-                transform.DOMove(new Vector3(collision.transform.position.x, collision.transform.position.y, -1f), 0.2f);
-                _rb.velocity = new Vector2(0f, 0f);
+        if (collision.GetComponent<NodeRhomb>())
+        {
+            NodeRhomb NR = collision.GetComponent<NodeRhomb>();
 
-                if (NR.leftDir == 1)
-                    leftMove = true;
-                if (NR.rightDir == 1)
-                    rightMove = true;
-                if (NR.upDir == 1)
-                    upMove = true;
-                if (NR.downDir == 1)
-                    downMove = true;
-            }
+            leftDist = NR.LeftDist;
+            rightDist = NR.RightDist;
+            upDist = NR.UpDist;
+            downDist = NR.DownDist;
 
-            if (collision.tag == "FinishRhomb")
-            {
-                transform.DOMove(new Vector3(collision.transform.position.x, collision.transform.position.y, -1f), 0.2f);
-                _rb.velocity = new Vector2(0f, 0f);
-            }
+            if (NR.LeftDir == 1)
+                leftMove = true;
+            if (NR.RightDir == 1)
+                rightMove = true;
+            if (NR.UpDir == 1)
+                upMove = true;
+            if (NR.DownDir == 1)
+                downMove = true;
+        }
 
-            if (collision.tag == "StartGameRhomb")
-            {
-                transform.position = new Vector3(collision.transform.position.x, collision.transform.position.y, -1f);
-                _rb.velocity = new Vector2(0f, 0f);
-                StartCoroutine("StartGame");
-            }
+        if (collision.tag == "FinishRhomb")
+        {
+            transform.DOMove(new Vector3(collision.transform.position.x, collision.transform.position.y, -1f), 0.2f);
+            _rb.velocity = new Vector2(0f, 0f);
+        }
+
+        if (collision.tag == "StartGameRhomb")
+        {
+            transform.position = new Vector3(collision.transform.position.x, collision.transform.position.y, -1f);
+            _rb.velocity = new Vector2(0f, 0f);
+            StartCoroutine("StartGame");
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
