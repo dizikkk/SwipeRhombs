@@ -392,10 +392,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levels:
   - {fileID: 8942205025801654702, guid: 2e0a91a9e25d68044b9d6cdfb0538676, type: 3}
-  - {fileID: 7886322202667441630, guid: ffc05c8581370ee42808cd7a6241eeab, type: 3}
+  - {fileID: 6207712750353089447, guid: ffc05c8581370ee42808cd7a6241eeab, type: 3}
+  - {fileID: 8265590715485455986, guid: a0b50fbcc6990ff4986f0b919e23a92b, type: 3}
   - {fileID: 2602078818063273465, guid: 376c81e5ac39e774c86b82d30bbe1630, type: 3}
   - {fileID: 3904930620740890217, guid: 1a269339f88d5444386a43eee6fbf361, type: 3}
-  curLvl: 2
+  curLvl: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

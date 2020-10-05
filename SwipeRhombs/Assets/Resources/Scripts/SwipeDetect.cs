@@ -129,12 +129,6 @@ public class SwipeDetect : MonoBehaviour
                 downMove = true;
         }
 
-        if (collision.tag == "FinishRhomb")
-        {
-            transform.DOMove(new Vector3(collision.transform.position.x, collision.transform.position.y, -1f), 0.2f);
-            _rb.velocity = new Vector2(0f, 0f);
-        }
-
         if (collision.tag == "StartGameRhomb")
         {
             transform.position = new Vector3(collision.transform.position.x, collision.transform.position.y, -1f);
