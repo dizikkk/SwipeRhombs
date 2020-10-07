@@ -25,8 +25,8 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (curLvl == 3)
-            Camera.main.orthographicSize = 75;
+        if (curLvl == 9)
+            Camera.main.orthographicSize = 70;
     }
 
     public void SwipeLevel()
@@ -34,11 +34,13 @@ public class LevelManager : MonoBehaviour
         curObjLevel.SetActive(false);
         Destroy(curObjLevel);
         curLvl++;
-        DoTweenManager._DoTweenManagerInst.ShowLevel();
         if (curLvl < levels.Length)
             curObjLevel = Instantiate(levels[curLvl], levels[curLvl].transform.position, Quaternion.identity);
         else
+        {
+            DoTweenManager._DoTweenManagerInst.ChangeLevelText.text = " ";
             DoTweenManager._DoTweenManagerInst.ShowFreeTrialText();
+        }
     }
 
     public void RestartLevel()

@@ -6,6 +6,8 @@ public class TaskManager : MonoBehaviour
 {
     public static TaskManager _taskManagerInst;
 
+    [SerializeField] private string changeLevelText;
+
     [SerializeField] private int countFinishRhomb;
     [SerializeField] private int needFinishRhombToWin;
 
@@ -15,6 +17,7 @@ public class TaskManager : MonoBehaviour
     void Start()
     {
         _taskManagerInst = this;
+        DoTweenManager._DoTweenManagerInst.ChangeLevelText.text = changeLevelText;
     }
 
     // Update is called once per frame

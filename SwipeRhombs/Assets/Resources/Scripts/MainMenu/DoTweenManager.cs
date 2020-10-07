@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
 using UnityEngine.UI;
+using TMPro;
 
 public class DoTweenManager : MonoBehaviour
 {
@@ -13,15 +14,17 @@ public class DoTweenManager : MonoBehaviour
     [SerializeField] private RectTransform retryBtn;
     [SerializeField] private RectTransform freeTrialTextRect;
 
-    [SerializeField] private Image bckLevelPanel;
-    [SerializeField] private GameObject freeTrialTextGO;
+    [SerializeField] private TextMeshProUGUI changeLevelText;
 
-    private float lastTime;
+    [SerializeField] private Image bckLevelPanel;
+
+    [SerializeField] private GameObject freeTrialTextGO;
 
     private bool isMenuOpen;
 
     public GameObject FreeTrialTextGO { get => freeTrialTextGO; set => freeTrialTextGO = value; }
     public Image BckLevelPanel { get => bckLevelPanel; set => bckLevelPanel = value; }
+    public TextMeshProUGUI ChangeLevelText { get => changeLevelText; set => changeLevelText = value; }
 
     // Start is called before the first frame update
 
@@ -95,7 +98,19 @@ public class DoTweenManager : MonoBehaviour
 
     public void HideLevel()
     {
-        bckLevelPanel.DOFade(1f, 1f);
+        bckLevelPanel.DOFade(1f, 1f).OnComplete(ShowChangeLevelText);
+        StartCoroutine(HideChangeLevelText());
+    }
+
+    IEnumerator HideChangeLevelText()
+    {
+        yield return new WaitForSeconds(2f);
+        changeLevelText.DOFade(0f, 1f).OnComplete(ShowLevel);
+    }
+
+    public void ShowChangeLevelText()
+    {
+        changeLevelText.DOFade(1f, 1f);
     }
 
     IEnumerator RetryCorrutine()
