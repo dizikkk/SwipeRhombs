@@ -66,7 +66,7 @@ public class DoTweenManager : MonoBehaviour
         slideBtn.DORotate(new Vector3(0f, 0f, -180f), 0.5f);
         isMenuOpen = true;
     }
-
+ 
     private void CloseMenu()
     {
         menu.DOAnchorPos(new Vector2(0f, -390), 0.5f);

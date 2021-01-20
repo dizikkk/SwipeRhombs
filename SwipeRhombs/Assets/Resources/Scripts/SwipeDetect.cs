@@ -9,12 +9,13 @@ public class SwipeDetect : MonoBehaviour
 {
     public static SwipeDetect _swipeDetectInst;
 
-    private float speed = 5000f;
     [SerializeField] private float leftDist;
     [SerializeField] private float rightDist;
     [SerializeField] private float upDist;
     [SerializeField] private float downDist;
 
+    private Vector2 startMousePos;
+    private Vector2 endMousePos;
     private Vector2 fingerDown;
     private Vector2 fingerUp;
     private bool detectSwipeOnlyAfterRelease = false;
@@ -45,6 +46,7 @@ public class SwipeDetect : MonoBehaviour
 
     void FixedUpdate()
     {
+        #region ANDROID
         foreach (Touch touch in Input.touches)
         {
             if (touch.phase == TouchPhase.Began)
@@ -69,11 +71,11 @@ public class SwipeDetect : MonoBehaviour
                 {
                     if (fingerDown.y - fingerUp.y > 0 && upMove && isMove)
                     {
-                        transform.localPositionTransition(new Vector3(transform.position.x, upDist, -1), 0.5f);
+                        transform.localPositionTransition(new Vector3(transform.position.x, upDist, -2), 0.5f);
                     }
                     else if (fingerDown.y - fingerUp.y < 0 && downMove && isMove)
                     {
-                        transform.localPositionTransition(new Vector3(transform.position.x, downDist, -1), 0.5f);
+                        transform.localPositionTransition(new Vector3(transform.position.x, downDist, -2), 0.5f);
                     }
                     fingerUp = fingerDown;
                 }
@@ -82,11 +84,11 @@ public class SwipeDetect : MonoBehaviour
                 {
                     if (fingerDown.x - fingerUp.x > 0 && rightMove && isMove)
                     {
-                        transform.localPositionTransition(new Vector3(rightDist, transform.position.y, -1), 0.5f);
+                        transform.localPositionTransition(new Vector3(rightDist, transform.position.y, -2), 0.5f);
                     }
                     else if (fingerDown.x - fingerUp.x < 0 && leftMove && isMove)
                     {
-                        transform.localPositionTransition(new Vector3(leftDist, transform.position.y, -1), 0.5f);
+                        transform.localPositionTransition(new Vector3(leftDist, transform.position.y, -2), 0.5f);
                     }
                     fingerUp = fingerDown;
                 }
@@ -101,11 +103,62 @@ public class SwipeDetect : MonoBehaviour
                 return Mathf.Abs(fingerDown.x - fingerUp.x);
             }
         }
+        #endregion
+
+        #region WEBGL
+        if (Input.GetMouseButtonDown(0))
+        {
+            startMousePos = Input.mousePosition;
+            endMousePos = Input.mousePosition;
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            endMousePos = Input.mousePosition;
+            CheckToMoveFromMouse();
+        }
+        #endregion
     }
 
     public void OnClick()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void CheckToMoveFromMouse()
+    {
+        float verticalMove()
+        {
+            return Mathf.Abs(startMousePos.y - endMousePos.y);
+        }
+        float horizontalValMove()
+        {
+            return Mathf.Abs(startMousePos.x - endMousePos.x);
+        }
+
+        if (verticalMove() > SWIPE_THRESHOLD && verticalMove() > horizontalValMove())
+        {
+            if (startMousePos.y - endMousePos.y < 0 && upMove && isMove)
+            {
+                transform.localPositionTransition(new Vector3(transform.position.x, upDist, -2), 0.5f);
+            }
+            else if (startMousePos.y - endMousePos.y > 0 && downMove && isMove)
+            {
+                transform.localPositionTransition(new Vector3(transform.position.x, downDist, -2), 0.5f);
+            }
+        }
+
+        else if (horizontalValMove() > SWIPE_THRESHOLD && horizontalValMove() > verticalMove())
+        {
+            if (startMousePos.x - endMousePos.x < 0 && rightMove && isMove)
+            {
+                transform.localPositionTransition(new Vector3(rightDist, transform.position.y, -2), 0.5f);
+            }
+            else if (startMousePos.x - endMousePos.x > 0 && leftMove && isMove)
+            {
+                transform.localPositionTransition(new Vector3(leftDist, transform.position.y, -2), 0.5f);
+            }
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

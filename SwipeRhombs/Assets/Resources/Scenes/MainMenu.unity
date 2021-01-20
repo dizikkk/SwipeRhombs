@@ -433,6 +433,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3985512673177751809, guid: 48a1b1415e4fa824f8893586a6c04d08,
         type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3985512673177751809, guid: 48a1b1415e4fa824f8893586a6c04d08,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.5
       objectReference: {fileID: 0}
@@ -448,6 +453,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3985512673177751809, guid: 48a1b1415e4fa824f8893586a6c04d08,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3985512673177751809, guid: 48a1b1415e4fa824f8893586a6c04d08,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
@@ -460,16 +470,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3985512673177751809, guid: 48a1b1415e4fa824f8893586a6c04d08,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3985512673177751809, guid: 48a1b1415e4fa824f8893586a6c04d08,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3985512673177751809, guid: 48a1b1415e4fa824f8893586a6c04d08,
         type: 3}
@@ -550,7 +550,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1080, y: 2009}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 2
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -636,7 +636,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -220, y: 470}
+  m_AnchoredPosition: {x: -220, y: 400}
   m_SizeDelta: {x: 512, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1080996418
@@ -658,7 +658,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SLIDE RHOMBS
+  m_text: "SLIDE \nRHOMBS"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b43b8d3ab9174954eb60df827e3f1ba4, type: 2}
   m_sharedMaterial: {fileID: -6728986296867668688, guid: b43b8d3ab9174954eb60df827e3f1ba4,
@@ -687,8 +687,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 150
-  m_fontSizeBase: 150
+  m_fontSize: 100
+  m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -728,9 +728,9 @@ MonoBehaviour:
   m_margin: {x: -63.560715, y: 149.36774, z: -503.38785, w: 0}
   m_textInfo:
     textComponent: {fileID: 1080996418}
-    characterCount: 12
+    characterCount: 13
     spriteCount: 0
-    spaceCount: 1
+    spaceCount: 2
     wordCount: 2
     linkCount: 0
     lineCount: 2
@@ -773,13 +773,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3325962688998898915, guid: f7759745b9a7bdd48b841989768aead5,
         type: 3}
-      propertyPath: m_Color.g
-      value: 0.5803922
+      propertyPath: m_Color.b
+      value: 0.67058825
       objectReference: {fileID: 0}
     - target: {fileID: 3325962688998898915, guid: f7759745b9a7bdd48b841989768aead5,
         type: 3}
-      propertyPath: m_Color.b
-      value: 0.67058825
+      propertyPath: m_Color.g
+      value: 0.5803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 3325962688998898924, guid: f7759745b9a7bdd48b841989768aead5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3325962688998898924, guid: f7759745b9a7bdd48b841989768aead5,
         type: 3}
@@ -798,6 +803,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3325962688998898924, guid: f7759745b9a7bdd48b841989768aead5,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3325962688998898924, guid: f7759745b9a7bdd48b841989768aead5,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -810,16 +820,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3325962688998898924, guid: f7759745b9a7bdd48b841989768aead5,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3325962688998898924, guid: f7759745b9a7bdd48b841989768aead5,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3325962688998898924, guid: f7759745b9a7bdd48b841989768aead5,
         type: 3}
@@ -1007,7 +1007,7 @@ RectTransform:
   m_GameObject: {fileID: 1874600850}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children:
   - {fileID: 1705443904}
   - {fileID: 2133481522}
@@ -1317,7 +1317,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -442, y: 112}
+  m_AnchoredPosition: {x: -579, y: 65}
   m_SizeDelta: {x: 200, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2024849113
@@ -1368,8 +1368,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1554,7 +1554,7 @@ Transform:
   m_GameObject: {fileID: 836775932322753284}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.16, y: 0, z: 0}
-  m_LocalScale: {x: 1.85, y: 1, z: 1}
+  m_LocalScale: {x: 1.85, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4

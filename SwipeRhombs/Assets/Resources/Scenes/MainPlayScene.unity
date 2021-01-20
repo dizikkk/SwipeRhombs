@@ -404,7 +404,8 @@ MonoBehaviour:
   - {fileID: 2046939379773639432, guid: 826231700ac173c49bd661999ea7a9ad, type: 3}
   - {fileID: 6050125773652313984, guid: bf247741a8413fa49b4037d62288cda6, type: 3}
   - {fileID: 4648389862861933965, guid: a6bdffd844b12da4a9a89687dd151f13, type: 3}
-  curLvl: 10
+  - {fileID: 1861958005172789718, guid: 0bc43a526a2e0334f9a4f38ced367304, type: 3}
+  curLvl: 11
 --- !u!1 &249964215
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,7 +613,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1080, y: 1920}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
@@ -725,7 +726,7 @@ GameObject:
   - component: {fileID: 887200269}
   - component: {fileID: 887200268}
   m_Layer: 5
-  m_Name: LevelPanel
+  m_Name: Hider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
