@@ -7,27 +7,25 @@ using DG.Tweening;
 public class LetRhomb : MonoBehaviour
 {
     private NodeRhomb _nodeRhombScript;
+    private LetRhomb _letRhomb;
+
+    public List<LetRhombValues> listOfValues = new List<LetRhombValues>(); 
 
     [SerializeField] private GameObject rhombToUnlet;
-    [SerializeField] private GameObject unletRhomb;
-    [SerializeField] private int leftDir;
-    [SerializeField] private int rightDir;
-    [SerializeField] private int upDir;
-    [SerializeField] private int downDir;
-
-    [SerializeField] private float leftDist;
-    [SerializeField] private float rightDist;
-    [SerializeField] private float upDist;
-    [SerializeField] private float downDist;
+    [SerializeField] private GameObject connectLine;
 
     private Transform letRhombChild;
-    [SerializeField] private GameObject connectLine;
+
     [SerializeField] private Vector3 connectLinePos;
+
+    private void Awake()
+    {
+        _letRhomb = this;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        _nodeRhombScript = unletRhomb.GetComponent<NodeRhomb>();
         letRhombChild = transform.Find("LetRhombAnim");
         letRhombChild.position = new Vector3(transform.position.x, transform.position.y, -1f);
     }
@@ -42,17 +40,33 @@ public class LetRhomb : MonoBehaviour
     {
         if (collision.GetComponent<Collider2D>() == rhombToUnlet.GetComponent<Collider2D>())
         {
-            _nodeRhombScript.LeftDir = leftDir;
-            _nodeRhombScript.RightDir = rightDir;
-            _nodeRhombScript.UpDir = upDir;
-            _nodeRhombScript.DownDir = downDir;
-
-            _nodeRhombScript.LeftDist = leftDist;
-            _nodeRhombScript.RightDist = rightDist;
-            _nodeRhombScript.UpDist = upDist;
-            _nodeRhombScript.DownDist = downDist;
-
+            UnlockWays();
             DoTween();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.GetComponent<Collider2D>() == rhombToUnlet.GetComponent<Collider2D>())
+        {
+            _letRhomb.enabled = false;   
+        }
+    }
+
+    private void UnlockWays()
+    {
+        for (int i = 0; i < listOfValues.Count; i++)
+        {
+            _nodeRhombScript = listOfValues[i].unletRhomb.GetComponent<NodeRhomb>();
+            _nodeRhombScript.LeftDir = listOfValues[i].leftDir;
+            _nodeRhombScript.RightDir = listOfValues[i].rightDir;
+            _nodeRhombScript.UpDir = listOfValues[i].upDir;
+            _nodeRhombScript.DownDir = listOfValues[i].downDir;
+
+            _nodeRhombScript.LeftDist = listOfValues[i].leftDist;
+            _nodeRhombScript.RightDist = listOfValues[i].rightDist;
+            _nodeRhombScript.UpDist = listOfValues[i].upDist;
+            _nodeRhombScript.DownDist = listOfValues[i].downDist;
         }
     }
 
