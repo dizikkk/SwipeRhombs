@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Lean.Transition;
 
 public class CollisionRhombDetect : MonoBehaviour
 {
-    Rigidbody2D _rb;
-
     [SerializeField] private GameObject KillRhomb;
 
     // Start is called before the first frame update
     void Start()
     {
-        _rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -25,7 +23,7 @@ public class CollisionRhombDetect : MonoBehaviour
     {
         if (collision.GetComponent<CollisionRhombDetect>())
         {
-            _rb.velocity = Vector2.zero;
+            transform.localPositionTransition(new Vector3(transform.position.x, transform.position.y, transform.position.z), 0f);
             SwipeDetect._swipeDetectInst.IsMove = false;
             KillRhomb.transform.DOScale(new Vector2(1f, 1f), 0.5f);
             StartCoroutine("RestartCor");
@@ -34,7 +32,7 @@ public class CollisionRhombDetect : MonoBehaviour
 
     IEnumerator RestartCor()
     {
-        yield return new WaitForSeconds(1f);
-        LevelManager._levelManagerInst.RestartLevel();
+        yield return new WaitForSeconds(0.5f);
+        DoTweenManager._DoTweenManagerInst.Retry();
     }
 }

@@ -139,11 +139,11 @@ public class SwipeDetect : MonoBehaviour
         {
             if (startMousePos.y - endMousePos.y < 0 && upMove && isMove)
             {
-                transform.localPositionTransition(new Vector3(transform.position.x, upDist, -2), 0.5f);
+                transform.localPositionTransition(new Vector3(transform.position.x, upDist, transform.position.z), 0.5f);
             }
             else if (startMousePos.y - endMousePos.y > 0 && downMove && isMove)
             {
-                transform.localPositionTransition(new Vector3(transform.position.x, downDist, -2), 0.5f);
+                transform.localPositionTransition(new Vector3(transform.position.x, downDist, transform.position.z), 0.5f);
             }
         }
 
@@ -151,11 +151,11 @@ public class SwipeDetect : MonoBehaviour
         {
             if (startMousePos.x - endMousePos.x < 0 && rightMove && isMove)
             {
-                transform.localPositionTransition(new Vector3(rightDist, transform.position.y, -2), 0.5f);
+                transform.localPositionTransition(new Vector3(rightDist, transform.position.y, transform.position.z), 0.5f);
             }
             else if (startMousePos.x - endMousePos.x > 0 && leftMove && isMove)
             {
-                transform.localPositionTransition(new Vector3(leftDist, transform.position.y, -2), 0.5f);
+                transform.localPositionTransition(new Vector3(leftDist, transform.position.y, transform.position.z), 0.5f);
             }
         }
 

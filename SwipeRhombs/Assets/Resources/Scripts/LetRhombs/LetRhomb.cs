@@ -15,6 +15,7 @@ public class LetRhomb : MonoBehaviour
     [SerializeField] private GameObject connectLine;
 
     private Transform letRhombChild;
+    private Transform connectLineChild;
 
     [SerializeField] private Vector3 connectLinePos;
 
@@ -28,6 +29,8 @@ public class LetRhomb : MonoBehaviour
     {
         letRhombChild = transform.Find("LetRhombAnim");
         letRhombChild.position = new Vector3(transform.position.x, transform.position.y, -1f);
+        connectLineChild = connectLine.transform.Find("ConnectLineChild");
+        connectLineChild.position = new Vector3(connectLine.transform.position.x, connectLine.transform.position.y, -1f);
     }
 
     // Update is called once per frame
@@ -72,8 +75,6 @@ public class LetRhomb : MonoBehaviour
 
     private void DoTween()
     {
-        Transform connectLineChild = connectLine.transform.Find("ConnectLineChild");
-        connectLineChild.position = new Vector3(connectLine.transform.position.x, connectLine.transform.position.y, -1f);
         connectLineChild.transform.GetComponent<SpriteRenderer>().DOFade(0f, 2f);
         connectLine.transform.DOLocalMove(connectLinePos, 1f);
         letRhombChild.transform.GetComponent<SpriteRenderer>().DOFade(0f, 1f);

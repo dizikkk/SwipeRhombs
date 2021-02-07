@@ -25,8 +25,7 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (curLvl == 9)
-            //Camera.main.orthographicSize = 70;
+
     }
 
     public void SwipeLevel()

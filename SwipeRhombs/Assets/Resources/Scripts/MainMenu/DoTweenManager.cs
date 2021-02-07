@@ -14,6 +14,7 @@ public class DoTweenManager : MonoBehaviour
     [SerializeField] private RectTransform retryBtn;
     [SerializeField] private RectTransform freeTrialTextRect;
 
+    [SerializeField] private TextMeshProUGUI retryLevelText;
     [SerializeField] private TextMeshProUGUI changeLevelText;
 
     [SerializeField] private Image bckLevelPanel;
@@ -55,25 +56,26 @@ public class DoTweenManager : MonoBehaviour
         }
     }
 
-    public void Retry()
-    {
-        StartCoroutine("RetryCorrutine");
-    }
-
     private void OpenMenu()
     {
-        menu.DOAnchorPos(new Vector2(0f, -550f), 0.5f);
+        menu.DOAnchorPos(new Vector2(-600f, -75f), 0.5f);
         slideBtn.DORotate(new Vector3(0f, 0f, -180f), 0.5f);
         isMenuOpen = true;
     }
  
     private void CloseMenu()
     {
-        menu.DOAnchorPos(new Vector2(0f, -390), 0.5f);
+        menu.DOAnchorPos(new Vector2(-860f, -75f), 0.5f);
         slideBtn.DORotate(Vector3.zero, 0.5f);
         isMenuOpen = false;
     }
 
+    public void ToMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    #region Trial Text
     public void ShowFreeTrialText()
     {
         freeTrialTextGO.SetActive(true);
@@ -85,12 +87,9 @@ public class DoTweenManager : MonoBehaviour
         freeTrialTextGO.SetActive(false);
         freeTrialTextRect.DOAnchorPos(new Vector2(0f, -1200f), 0f);
     }
+    #endregion
 
-    public void ToMainMenu()
-    {
-        SceneManager.LoadScene(0);
-    }
-
+    #region ChangeLevel
     public void ShowLevel()
     {
         bckLevelPanel.DOFade(0f, 1f);
@@ -112,12 +111,38 @@ public class DoTweenManager : MonoBehaviour
     {
         changeLevelText.DOFade(1f, 1f);
     }
+    #endregion
+
+    #region Retry
+    public void Retry()
+    {
+        StartCoroutine("RetryCorrutine");
+    }
+
+    public void RetryHider()
+    {
+        bckLevelPanel.DOFade(1f, 1f).OnComplete(ShowRetryLevelText);
+        StartCoroutine(HideRetryLevelText());
+    }
+
+    public void ShowRetryLevelText()
+    {
+        retryLevelText.DOFade(1f, 1f);
+    }
+
+    IEnumerator HideRetryLevelText()
+    {
+        yield return new WaitForSeconds(2f);
+        retryLevelText.DOFade(0f, 1f).OnComplete(ShowLevel);
+    }
 
     IEnumerator RetryCorrutine()
     {
         retryBtn.DORotate(new Vector3(0f, 0f, -720f), 1f);
+        RetryHider();
         yield return new WaitForSeconds(0.7f);
         LevelManager._levelManagerInst.RestartLevel();
         CloseMenu();
     }
+    #endregion
 }
