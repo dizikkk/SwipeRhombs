@@ -11,14 +11,14 @@ public class LevelManager : MonoBehaviour
     private GameObject curObjLevel;
     [SerializeField] private GameObject[] levels;
 
-    [SerializeField] private int curLvl;
+    private int countOfAccessLevels;
+    private int curLvl;
 
     // Start is called before the first frame update
     void Start()
     {
         _levelManagerInst = this;
         DoTweenManager._DoTweenManagerInst.HideFreeTrialText();
-        curObjLevel = Instantiate(levels[curLvl], levels[curLvl].transform.position, Quaternion.identity);
         DoTweenManager._DoTweenManagerInst.ShowLevel();
     }
 
@@ -28,8 +28,18 @@ public class LevelManager : MonoBehaviour
 
     }
 
+    public void StartLevel(int curLevel)
+    {
+        curObjLevel = Instantiate(levels[curLevel], levels[curLevel].transform.position, Quaternion.identity);
+        curLvl = curLevel;
+    }
+
     public void SwipeLevel()
     {
+        countOfAccessLevels++;
+        ChooseLevelManager.Instance.AccessToLevelRhombs(countOfAccessLevels);
+        ChooseLevelManager.Instance.MoveConnectLines(curLvl);
+
         curObjLevel.SetActive(false);
         Destroy(curObjLevel);
         curLvl++;
@@ -40,6 +50,7 @@ public class LevelManager : MonoBehaviour
             DoTweenManager._DoTweenManagerInst.ChangeLevelText.text = " ";
             DoTweenManager._DoTweenManagerInst.ShowFreeTrialText();
         }
+        PlayerPrefs.Save();
     }
 
     public void RestartLevel()

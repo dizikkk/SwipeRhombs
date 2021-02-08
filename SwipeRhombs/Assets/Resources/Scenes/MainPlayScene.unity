@@ -380,6 +380,7 @@ GameObject:
   - component: {fileID: 50367654}
   - component: {fileID: 50367656}
   - component: {fileID: 50367655}
+  - component: {fileID: 50367657}
   m_Layer: 0
   m_Name: LevelRhomb (10)
   m_TagString: FinishRhomb
@@ -401,7 +402,7 @@ Transform:
   - {fileID: 1241639195}
   - {fileID: 1100971600}
   m_Father: {fileID: 1522222933}
-  m_RootOrder: 22
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &50367655
 PolygonCollider2D:
@@ -410,7 +411,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 50367653}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -486,6 +487,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &50367657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50367653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cfcb69f4c924314bb8939c3e16bee8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &92686773
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,7 +516,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &92686774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -523,9 +536,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0412\u0430\u0448 \u043F\u0443\u0442\u044C \u0437\u0430\u043A\u043E\u043D\u0447\u0438\u043B\u0441\u044F.\n\u041D\u043E
+  m_text: "\u0412\u0430\u0448 \u043F\u0443\u0442\u044C \u043F\u0440\u0435\u0440\u0432\u0430\u043B\u0441\u044F.\n\u041D\u043E
     \u044D\u0442\u043E \u043D\u0435 \u0437\u043D\u0430\u0447\u0438\u0442 \u0447\u0442\u043E
-    \u044D\u0442\u043E \u043A\u043E\u043D\u0435\u0446."
+    \u0432\u0441\u0451 \u043A\u043E\u043D\u0447\u0435\u043D\u043E."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 169df6dbd452dcf4ab1580b5e54364d0, type: 2}
   m_sharedMaterial: {fileID: 7847049383992154653, guid: 169df6dbd452dcf4ab1580b5e54364d0,
@@ -595,12 +608,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 92686774}
-    characterCount: 70
+    characterCount: 53
     spriteCount: 0
-    spaceCount: 11
+    spaceCount: 9
     wordCount: 10
     linkCount: 0
-    lineCount: 4
+    lineCount: 3
     pageCount: 1
     materialCount: 2
   m_isUsingLegacyAnimationComponent: 0
@@ -706,7 +719,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 7
+  m_text: 9
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 169df6dbd452dcf4ab1580b5e54364d0, type: 2}
   m_sharedMaterial: {fileID: 7847049383992154653, guid: 169df6dbd452dcf4ab1580b5e54364d0,
@@ -892,7 +905,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 131912826}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14b8257706b862d4a8558f243fdc156c, type: 3}
   m_Name: 
@@ -913,7 +926,6 @@ MonoBehaviour:
   - {fileID: 6955818990387212840, guid: adf902911cc999448936bd00114a0d1c, type: 3}
   - {fileID: 3894458323960874866, guid: 6448e0ceb6ee88740b9085079b68451b, type: 3}
   - {fileID: 2724072735225293549, guid: 49ac61fb125e08544910b48f1a447858, type: 3}
-  curLvl: 14
 --- !u!1 &185783301
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,7 +955,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 3.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1522222933}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &185783303
 SpriteRenderer:
@@ -1024,7 +1036,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 3.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1522222933}
-  m_RootOrder: 12
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &209954781
 SpriteRenderer:
@@ -1105,7 +1117,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 3.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1522222933}
-  m_RootOrder: 13
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &238107514
 SpriteRenderer:
@@ -1241,6 +1253,7 @@ GameObject:
   - component: {fileID: 299986825}
   - component: {fileID: 299986827}
   - component: {fileID: 299986826}
+  - component: {fileID: 299986828}
   m_Layer: 0
   m_Name: LevelRhomb (4)
   m_TagString: FinishRhomb
@@ -1271,7 +1284,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299986824}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1347,6 +1360,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &299986828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299986824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cfcb69f4c924314bb8939c3e16bee8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &301727046
 GameObject:
   m_ObjectHideFlags: 0
@@ -1358,6 +1383,7 @@ GameObject:
   - component: {fileID: 301727047}
   - component: {fileID: 301727049}
   - component: {fileID: 301727048}
+  - component: {fileID: 301727050}
   m_Layer: 0
   m_Name: LevelRhomb (3)
   m_TagString: FinishRhomb
@@ -1388,7 +1414,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 301727046}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1464,6 +1490,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &301727050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301727046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cfcb69f4c924314bb8939c3e16bee8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &302260666
 GameObject:
   m_ObjectHideFlags: 0
@@ -1556,6 +1594,7 @@ GameObject:
   - component: {fileID: 312276937}
   - component: {fileID: 312276939}
   - component: {fileID: 312276938}
+  - component: {fileID: 312276940}
   m_Layer: 0
   m_Name: LevelRhomb (11)
   m_TagString: FinishRhomb
@@ -1577,7 +1616,7 @@ Transform:
   - {fileID: 1509275586}
   - {fileID: 1921132368}
   m_Father: {fileID: 1522222933}
-  m_RootOrder: 23
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &312276938
 PolygonCollider2D:
@@ -1586,7 +1625,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 312276936}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1662,6 +1701,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &312276940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312276936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cfcb69f4c924314bb8939c3e16bee8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &350510537
 GameObject:
   m_ObjectHideFlags: 0
@@ -2395,7 +2446,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 3.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1522222933}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &566142501
 SpriteRenderer:
@@ -3118,6 +3169,7 @@ MonoBehaviour:
   changeLevelText: {fileID: 1988856962}
   bckLevelPanel: {fileID: 887200268}
   freeTrialTextGO: {fileID: 92686773}
+  chooseLevel: {fileID: 1522222932}
 --- !u!4 &786054308
 Transform:
   m_ObjectHideFlags: 0
@@ -3664,7 +3716,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &887200267
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3697,7 +3749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9803922, g: 0.96470594, b: 0.9607844, a: 1}
+  m_Color: {r: 0.9803922, g: 0.96470594, b: 0.9607844, a: 0}
   m_RaycastTarget: 0
   m_Maskable: 0
   m_OnCullStateChanged:
@@ -3928,7 +3980,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 959805491}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
@@ -4068,6 +4120,7 @@ GameObject:
   - component: {fileID: 977980346}
   - component: {fileID: 977980348}
   - component: {fileID: 977980347}
+  - component: {fileID: 977980349}
   m_Layer: 0
   m_Name: LevelRhomb (15)
   m_TagString: FinishRhomb
@@ -4098,7 +4151,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 977980345}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -4174,6 +4227,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &977980349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 977980345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cfcb69f4c924314bb8939c3e16bee8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1061272197
 GameObject:
   m_ObjectHideFlags: 0
@@ -4185,6 +4250,7 @@ GameObject:
   - component: {fileID: 1061272198}
   - component: {fileID: 1061272200}
   - component: {fileID: 1061272199}
+  - component: {fileID: 1061272201}
   m_Layer: 0
   m_Name: LevelRhomb (6)
   m_TagString: FinishRhomb
@@ -4215,7 +4281,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1061272197}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -4291,6 +4357,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1061272201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061272197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cfcb69f4c924314bb8939c3e16bee8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1082305730
 GameObject:
   m_ObjectHideFlags: 0
@@ -4431,7 +4509,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 9
+  m_text: 7
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 169df6dbd452dcf4ab1580b5e54364d0, type: 2}
   m_sharedMaterial: {fileID: 7847049383992154653, guid: 169df6dbd452dcf4ab1580b5e54364d0,
@@ -5310,6 +5388,7 @@ GameObject:
   - component: {fileID: 1290358478}
   - component: {fileID: 1290358480}
   - component: {fileID: 1290358479}
+  - component: {fileID: 1290358481}
   m_Layer: 0
   m_Name: LevelRhomb (12)
   m_TagString: FinishRhomb
@@ -5340,7 +5419,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1290358477}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -5416,6 +5495,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1290358481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290358477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cfcb69f4c924314bb8939c3e16bee8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1315973506
 GameObject:
   m_ObjectHideFlags: 0
@@ -5427,6 +5518,7 @@ GameObject:
   - component: {fileID: 1315973507}
   - component: {fileID: 1315973509}
   - component: {fileID: 1315973508}
+  - component: {fileID: 1315973510}
   m_Layer: 0
   m_Name: LevelRhomb (9)
   m_TagString: FinishRhomb
@@ -5457,7 +5549,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1315973506}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -5533,6 +5625,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1315973510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315973506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cfcb69f4c924314bb8939c3e16bee8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1353057680
 GameObject:
   m_ObjectHideFlags: 0
@@ -5764,7 +5868,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 3.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1522222933}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1376680665
 SpriteRenderer:
@@ -5827,6 +5931,7 @@ GameObject:
   - component: {fileID: 1386677273}
   - component: {fileID: 1386677275}
   - component: {fileID: 1386677274}
+  - component: {fileID: 1386677276}
   m_Layer: 0
   m_Name: LevelRhomb (14)
   m_TagString: FinishRhomb
@@ -5857,7 +5962,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1386677272}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -5933,6 +6038,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1386677276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386677272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cfcb69f4c924314bb8939c3e16bee8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1407802949
 GameObject:
   m_ObjectHideFlags: 0
@@ -6043,7 +6160,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 3.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1522222933}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1412961849
 SpriteRenderer:
@@ -6574,8 +6691,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1522222933}
+  - component: {fileID: 1522222934}
   m_Layer: 0
-  m_Name: ChooseLevel
+  m_Name: ChooseLevelManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6596,26 +6714,26 @@ Transform:
   - {fileID: 664466699}
   - {fileID: 1082305731}
   - {fileID: 974081377}
-  - {fileID: 1644550264}
-  - {fileID: 185783302}
-  - {fileID: 1990268402}
+  - {fileID: 209954780}
   - {fileID: 2080233516}
+  - {fileID: 1990268402}
+  - {fileID: 185783302}
+  - {fileID: 1644550264}
+  - {fileID: 238107513}
   - {fileID: 1376680664}
   - {fileID: 1412961848}
   - {fileID: 566142500}
   - {fileID: 1654284573}
-  - {fileID: 209954780}
-  - {fileID: 238107513}
   - {fileID: 2082740133}
   - {fileID: 301727047}
   - {fileID: 299986825}
   - {fileID: 1587596840}
   - {fileID: 1061272198}
-  - {fileID: 2076778301}
-  - {fileID: 1904507090}
-  - {fileID: 1315973507}
-  - {fileID: 50367654}
   - {fileID: 312276937}
+  - {fileID: 50367654}
+  - {fileID: 1315973507}
+  - {fileID: 1904507090}
+  - {fileID: 2076778301}
   - {fileID: 1290358478}
   - {fileID: 2039893079}
   - {fileID: 1386677273}
@@ -6624,6 +6742,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1522222934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522222932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c99f4b23826f5da4cba0e956b14c3f34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  connectLines:
+  - {fileID: 6838079842004755912}
+  - {fileID: 664466698}
+  - {fileID: 1082305730}
+  - {fileID: 974081376}
+  - {fileID: 209954779}
+  - {fileID: 2080233515}
+  - {fileID: 1990268401}
+  - {fileID: 185783301}
+  - {fileID: 1644550263}
+  - {fileID: 238107512}
+  - {fileID: 1376680663}
+  - {fileID: 1412961847}
+  - {fileID: 566142499}
+  - {fileID: 1654284572}
+  levelRhombs:
+  - {fileID: 2082740132}
+  - {fileID: 301727046}
+  - {fileID: 299986824}
+  - {fileID: 1587596839}
+  - {fileID: 1061272197}
+  - {fileID: 312276936}
+  - {fileID: 50367653}
+  - {fileID: 1315973506}
+  - {fileID: 1904507089}
+  - {fileID: 2076778300}
+  - {fileID: 1290358477}
+  - {fileID: 2039893078}
+  - {fileID: 1386677272}
+  - {fileID: 977980345}
+  - {fileID: 1835688219}
 --- !u!1 &1563175576
 GameObject:
   m_ObjectHideFlags: 0
@@ -6649,7 +6810,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1563175576}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
@@ -6915,6 +7076,7 @@ GameObject:
   - component: {fileID: 1587596840}
   - component: {fileID: 1587596842}
   - component: {fileID: 1587596841}
+  - component: {fileID: 1587596843}
   m_Layer: 0
   m_Name: LevelRhomb (5)
   m_TagString: FinishRhomb
@@ -6945,7 +7107,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1587596839}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -7021,6 +7183,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1587596843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587596839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cfcb69f4c924314bb8939c3e16bee8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1601566186
 GameObject:
   m_ObjectHideFlags: 0
@@ -7232,7 +7406,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 3.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1522222933}
-  m_RootOrder: 4
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1644550265
 SpriteRenderer:
@@ -7394,7 +7568,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 3.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1522222933}
-  m_RootOrder: 11
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1654284574
 SpriteRenderer:
@@ -7992,7 +8166,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 2, y: 2}
+  m_SizeDelta: {x: 4, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1741976745
 MonoBehaviour:
@@ -8013,7 +8187,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 6
+  m_text: 10
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 169df6dbd452dcf4ab1580b5e54364d0, type: 2}
   m_sharedMaterial: {fileID: 7847049383992154653, guid: 169df6dbd452dcf4ab1580b5e54364d0,
@@ -8083,7 +8257,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1741976745}
-    characterCount: 1
+    characterCount: 2
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -8172,6 +8346,7 @@ GameObject:
   - component: {fileID: 1835688220}
   - component: {fileID: 1835688222}
   - component: {fileID: 1835688221}
+  - component: {fileID: 1835688223}
   m_Layer: 0
   m_Name: LevelRhomb (16)
   m_TagString: FinishRhomb
@@ -8202,7 +8377,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1835688219}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -8278,6 +8453,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1835688223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835688219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cfcb69f4c924314bb8939c3e16bee8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1838769394
 GameObject:
   m_ObjectHideFlags: 0
@@ -8592,6 +8779,7 @@ GameObject:
   - component: {fileID: 1904507090}
   - component: {fileID: 1904507092}
   - component: {fileID: 1904507091}
+  - component: {fileID: 1904507093}
   m_Layer: 0
   m_Name: LevelRhomb (8)
   m_TagString: FinishRhomb
@@ -8613,7 +8801,7 @@ Transform:
   - {fileID: 642192489}
   - {fileID: 96892422}
   m_Father: {fileID: 1522222933}
-  m_RootOrder: 20
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &1904507091
 PolygonCollider2D:
@@ -8622,7 +8810,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1904507089}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -8698,6 +8886,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1904507093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904507089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cfcb69f4c924314bb8939c3e16bee8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1921132367
 GameObject:
   m_ObjectHideFlags: 0
@@ -8736,7 +8936,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 4, y: 2}
+  m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1921132369
 MonoBehaviour:
@@ -8757,7 +8957,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10
+  m_text: 6
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 169df6dbd452dcf4ab1580b5e54364d0, type: 2}
   m_sharedMaterial: {fileID: 7847049383992154653, guid: 169df6dbd452dcf4ab1580b5e54364d0,
@@ -8827,7 +9027,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1921132369}
-    characterCount: 2
+    characterCount: 1
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -9544,6 +9744,7 @@ GameObject:
   - component: {fileID: 2039893079}
   - component: {fileID: 2039893081}
   - component: {fileID: 2039893080}
+  - component: {fileID: 2039893082}
   m_Layer: 0
   m_Name: LevelRhomb (13)
   m_TagString: FinishRhomb
@@ -9574,7 +9775,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2039893078}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -9650,6 +9851,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2039893082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039893078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cfcb69f4c924314bb8939c3e16bee8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2040829020
 GameObject:
   m_ObjectHideFlags: 0
@@ -9868,6 +10081,7 @@ GameObject:
   - component: {fileID: 2076778301}
   - component: {fileID: 2076778303}
   - component: {fileID: 2076778302}
+  - component: {fileID: 2076778304}
   m_Layer: 0
   m_Name: LevelRhomb (7)
   m_TagString: FinishRhomb
@@ -9889,7 +10103,7 @@ Transform:
   - {fileID: 740971956}
   - {fileID: 1741976744}
   m_Father: {fileID: 1522222933}
-  m_RootOrder: 19
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &2076778302
 PolygonCollider2D:
@@ -9898,7 +10112,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2076778300}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -9974,6 +10188,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2076778304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076778300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cfcb69f4c924314bb8939c3e16bee8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2080233515
 GameObject:
   m_ObjectHideFlags: 0
@@ -10003,7 +10229,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 3.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1522222933}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2080233517
 SpriteRenderer:
@@ -10066,6 +10292,7 @@ GameObject:
   - component: {fileID: 2082740133}
   - component: {fileID: 2082740135}
   - component: {fileID: 2082740134}
+  - component: {fileID: 2082740136}
   m_Layer: 0
   m_Name: LevelRhomb (2)
   m_TagString: FinishRhomb
@@ -10172,6 +10399,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2082740136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082740132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cfcb69f4c924314bb8939c3e16bee8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2108804193
 GameObject:
   m_ObjectHideFlags: 0
