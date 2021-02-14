@@ -20,6 +20,7 @@ public class DoTweenManager : MonoBehaviour
     [SerializeField] private Image bckLevelPanel;
 
     [SerializeField] private GameObject freeTrialTextGO;
+    [SerializeField] private GameObject chooseLevel;
 
     private bool isMenuOpen;
 
@@ -48,13 +49,25 @@ public class DoTweenManager : MonoBehaviour
     {
         if (!isMenuOpen)
         {
-            OpenMenu();
+            if (chooseLevel.activeSelf == false)
+                OpenMenu();
+            else
+                OpenChooseLevelMenu();
         }
         else
         {
             CloseMenu();
         }
     }
+
+    #region ChooseLevelMenu
+    private void OpenChooseLevelMenu()
+    {
+        menu.DOAnchorPos(new Vector2(-735f, -75f), 0.5f);
+        slideBtn.DORotate(new Vector3(0f, 0f, -180f), 0.5f);
+        isMenuOpen = true;
+    }
+    #endregion
 
     private void OpenMenu()
     {
@@ -97,6 +110,7 @@ public class DoTweenManager : MonoBehaviour
 
     public void HideLevel()
     {
+        CloseMenu();
         bckLevelPanel.DOFade(1f, 1f).OnComplete(ShowChangeLevelText);
         StartCoroutine(HideChangeLevelText());
     }

@@ -140,10 +140,12 @@ public class SwipeDetect : MonoBehaviour
             if (startMousePos.y - endMousePos.y < 0 && upMove && isMove)
             {
                 transform.localPositionTransition(new Vector3(transform.position.x, upDist, transform.position.z), 0.5f);
+                isMove = false;
             }
             else if (startMousePos.y - endMousePos.y > 0 && downMove && isMove)
             {
                 transform.localPositionTransition(new Vector3(transform.position.x, downDist, transform.position.z), 0.5f);
+                isMove = false;
             }
         }
 
@@ -152,10 +154,12 @@ public class SwipeDetect : MonoBehaviour
             if (startMousePos.x - endMousePos.x < 0 && rightMove && isMove)
             {
                 transform.localPositionTransition(new Vector3(rightDist, transform.position.y, transform.position.z), 0.5f);
+                isMove = false;
             }
             else if (startMousePos.x - endMousePos.x > 0 && leftMove && isMove)
             {
                 transform.localPositionTransition(new Vector3(leftDist, transform.position.y, transform.position.z), 0.5f);
+                isMove = false;
             }
         }
 
@@ -165,6 +169,8 @@ public class SwipeDetect : MonoBehaviour
     {
         if (collision.GetComponent<NodeRhomb>())
         {
+            StartCoroutine("TimeToMove");
+
             NodeRhomb NR = collision.GetComponent<NodeRhomb>();
 
             leftDist = NR.LeftDist;
@@ -186,6 +192,12 @@ public class SwipeDetect : MonoBehaviour
         {
             StartCoroutine("StartGame");
         }
+    }
+
+    private IEnumerator TimeToMove()
+    {
+        yield return new WaitForSeconds(0.1f);
+        isMove = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
