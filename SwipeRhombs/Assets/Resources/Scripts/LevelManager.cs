@@ -10,12 +10,19 @@ public class LevelManager : MonoBehaviour
     private GameObject curObjLevel;
     [SerializeField] private GameObject[] levels;
 
+    private GameObject mainCamera;
+
     private int countOfAccessLevels;
     private int curLvl;
 
     public int CurLvl { get => curLvl; set => curLvl = value; }
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        mainCamera = GameObject.Find("Main Camera");
+    }
+
     void Start()
     {
         _levelManagerInst = this;
@@ -26,7 +33,14 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (ChooseLevelManager.Instance.Hider.activeSelf)
+        {
+            if (curLvl <= 4)
+                mainCamera.transform.position = new Vector3(0f, -5f, -10f);
+            else if (curLvl > 4)
+                mainCamera.transform.position = new Vector3(0f, 0f, -10f);
+        } 
+        else mainCamera.transform.position = new Vector3(0f, 0f, -10f);
     }
 
     public void StartLevel(int curLevel)
@@ -38,11 +52,14 @@ public class LevelManager : MonoBehaviour
 
     public void SwipeLevel()
     {
-        countOfAccessLevels++;
-        if (ChooseLevelManager.Instance.CheckToAccessLevelRhomb(countOfAccessLevels))
+        if ((curLvl + 1) < levels.Length)
         {
-            ChooseLevelManager.Instance.AccessToLevelRhombs(countOfAccessLevels);
-            ChooseLevelManager.Instance.MoveConnectLines(curLvl);
+            countOfAccessLevels++;
+            if (ChooseLevelManager.Instance.CheckToAccessLevelRhomb(countOfAccessLevels))
+            {
+                ChooseLevelManager.Instance.AccessToLevelRhombs(countOfAccessLevels);
+                ChooseLevelManager.Instance.MoveConnectLines(curLvl);
+            }
         }
 
         curObjLevel.SetActive(false);
@@ -61,7 +78,10 @@ public class LevelManager : MonoBehaviour
 
     public void RestartLevel()
     {
-        Destroy(curObjLevel);
-        curObjLevel = Instantiate(levels[curLvl], levels[curLvl].transform.position, Quaternion.identity);
+        if (curLvl < levels.Length)
+        {
+            Destroy(curObjLevel);
+            curObjLevel = Instantiate(levels[curLvl], levels[curLvl].transform.position, Quaternion.identity);
+        }
     }
 }

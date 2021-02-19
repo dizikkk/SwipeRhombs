@@ -13,6 +13,8 @@ public class ChooseLevelManager : MonoBehaviour
 
     private string accessLevelNumKey;
 
+    public GameObject Hider { get => hider; set => hider = value; }
+
     private void Awake()
     {
         Instance = this;
