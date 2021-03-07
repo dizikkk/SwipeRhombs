@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 265292669205754438}
   - component: {fileID: 265292669205754439}
+  - component: {fileID: 7829173405517309597}
   m_Layer: 0
   m_Name: TaskManager
   m_TagString: Untagged
@@ -43,10 +44,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 070a56543fc0e3f43a6d2ed759b6519e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeLevelText: "\u042D\u0442\u043E \u0442\u043E\u043B\u044C\u043A\u043E \u043D\u0430\u0447\u0430\u043B\u043E
-    \u043F\u0443\u0442\u0438"
   countFinishRhomb: 0
   needFinishRhombToWin: 1
+--- !u!114 &7829173405517309597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265292669205754437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37fbba77c8330dd46ba21f38f7cc04a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allTexts:
+  - "\u042D\u0422\u041E \u041D\u0410\u0427\u0410\u041B\u041E \u0422\u0412\u041E\u0415\u0413\u041E
+    \u041F\u0423\u0422\u0418"
+  - 'THIS IS THE BEGINNING OF YOUR WAY '
 --- !u!1 &784792872499469958
 GameObject:
   m_ObjectHideFlags: 0

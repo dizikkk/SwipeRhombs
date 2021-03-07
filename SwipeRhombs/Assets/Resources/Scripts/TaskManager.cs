@@ -6,18 +6,19 @@ public class TaskManager : MonoBehaviour
 {
     public static TaskManager _taskManagerInst;
 
-    [SerializeField] private string changeLevelText;
-
     [SerializeField] private int countFinishRhomb;
     [SerializeField] private int needFinishRhombToWin;
+
+    private SetChangeLevelText changeLevelText;
 
     public int CountFinishRhomb { get => countFinishRhomb; set => countFinishRhomb = value; }
 
     // Start is called before the first frame update
     void Start()
     {
+        changeLevelText = transform.gameObject.GetComponent<SetChangeLevelText>();
         _taskManagerInst = this;
-        DoTweenManager._DoTweenManagerInst.ChangeLevelText.text = changeLevelText;
+        StartCoroutine("SetChangeLevelText");
     }
 
     // Update is called once per frame
@@ -31,6 +32,13 @@ public class TaskManager : MonoBehaviour
     {
         DoTweenManager._DoTweenManagerInst.HideLevel();
         StartCoroutine(ChangeLevel());
+    }
+
+    IEnumerator SetChangeLevelText()
+    {
+        DoTweenManager._DoTweenManagerInst.ChangeLevelText.text = "";
+        yield return new WaitForSeconds(0.1f);
+        DoTweenManager._DoTweenManagerInst.ChangeLevelText.text = changeLevelText.ChangeLevelText();
     }
 
     IEnumerator ChangeLevel()

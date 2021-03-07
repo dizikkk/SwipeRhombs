@@ -192,6 +192,16 @@ public class SwipeDetect : MonoBehaviour
         {
             StartCoroutine("StartGame");
         }
+
+        if (collision.tag == "SettingsRhomb")
+        {
+            StartCoroutine("GameSettings");
+        }
+        
+        if (collision.tag == "ToMainMenu")
+        {
+            StartCoroutine("ToMainMenu");
+        }
     }
 
     private IEnumerator TimeToMove()
@@ -209,6 +219,18 @@ public class SwipeDetect : MonoBehaviour
     }
 
     IEnumerator StartGame()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(2);
+    }
+
+    IEnumerator GameSettings()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(3);
+    }
+
+    IEnumerator ToMainMenu()
     {
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(1);

@@ -8,6 +8,8 @@ TagManager:
   - NodeRhomb
   - FinishRhomb
   - StartGameRhomb
+  - SettingsRhomb
+  - ToMainMenu
   layers:
   - Default
   - TransparentFX

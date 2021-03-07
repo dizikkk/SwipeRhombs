@@ -1776,6 +1776,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6434978744063403619}
   - component: {fileID: 6434978744063403618}
+  - component: {fileID: 4364631411966471044}
   m_Layer: 0
   m_Name: TaskManager
   m_TagString: Untagged
@@ -1809,10 +1810,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 070a56543fc0e3f43a6d2ed759b6519e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeLevelText: "\u041E\u043D \u043D\u0438\u043A\u043E\u0433\u0434\u0430 \u043D\u0435
-    \u0431\u044B\u0432\u0430\u0435\u0442 \u043F\u0440\u043E\u0441\u0442\u044B\u043C"
   countFinishRhomb: 0
   needFinishRhombToWin: 2
+--- !u!114 &4364631411966471044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6434978744063403616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37fbba77c8330dd46ba21f38f7cc04a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allTexts:
+  - "\u041B\u0423\u0427\u0428\u0415 \u041E\u0411 \u042D\u0422\u041E\u041C \u041D\u0415
+    \u0414\u0423\u041C\u0410\u0422\u042C"
+  - 'IT IS BETTER NOT TO THINK ABOUT IT '
 --- !u!1 &6937768735661657751
 GameObject:
   m_ObjectHideFlags: 0

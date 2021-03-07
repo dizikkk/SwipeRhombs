@@ -2115,6 +2115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8942205025052451369}
   - component: {fileID: 8942205025052451368}
+  - component: {fileID: 3653241397158885982}
   m_Layer: 0
   m_Name: TaskManager
   m_TagString: Untagged
@@ -2148,9 +2149,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 070a56543fc0e3f43a6d2ed759b6519e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeLevelText: "\u041F\u0440\u0438\u0441\u0442\u0443\u043F\u0438\u043C"
   countFinishRhomb: 0
   needFinishRhombToWin: 1
+--- !u!114 &3653241397158885982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8942205025052451370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37fbba77c8330dd46ba21f38f7cc04a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allTexts:
+  - "\u041F\u0420\u0418\u0421\u0422\u0423\u041F\u0418\u041C"
+  - 'LET''S START '
 --- !u!1 &8942205025801654702
 GameObject:
   m_ObjectHideFlags: 0

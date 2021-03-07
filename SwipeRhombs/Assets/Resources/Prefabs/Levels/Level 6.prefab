@@ -2050,6 +2050,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6041683176211053825}
   - component: {fileID: 6041683176211053824}
+  - component: {fileID: 458536916736946318}
   m_Layer: 0
   m_Name: TaskManager
   m_TagString: Untagged
@@ -2083,9 +2084,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 070a56543fc0e3f43a6d2ed759b6519e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeLevelText: "\u0411\u044B\u0442\u044C \u0443\u043F\u043E\u0440\u043D\u044B\u043C"
   countFinishRhomb: 0
   needFinishRhombToWin: 2
+--- !u!114 &458536916736946318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6041683176211053826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37fbba77c8330dd46ba21f38f7cc04a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allTexts:
+  - "\u042D\u0422\u041E \u041D\u0415 \u0422\u0410\u041A \u041F\u0420\u041E\u0421\u0422\u041E
+    \u041A\u0410\u041A \u041A\u0410\u0416\u0415\u0422\u0421\u042F "
+  - 'IT''S NOT AS SIMPLE AS IT SEEMS '
 --- !u!1 &6041683176939277958
 GameObject:
   m_ObjectHideFlags: 0
