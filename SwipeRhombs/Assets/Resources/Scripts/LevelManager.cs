@@ -7,6 +7,11 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager _levelManagerInst;
 
+    public delegate void OnStartLevel();
+    public delegate void OnSwipeLevel();
+    public event OnStartLevel startLevel;
+    public event OnSwipeLevel swipeLevel;
+
     private GameObject curObjLevel;
     [SerializeField] private GameObject[] levels;
 
@@ -74,6 +79,7 @@ public class LevelManager : MonoBehaviour
             DoTweenManager._DoTweenManagerInst.ChangeLevelText.text = " ";
             DoTweenManager._DoTweenManagerInst.ShowFreeTrialText();
         }
+        swipeLevel?.Invoke();
     }
 
     public void RestartLevel()

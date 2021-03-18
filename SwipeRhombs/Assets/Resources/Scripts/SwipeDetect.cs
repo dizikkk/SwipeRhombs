@@ -9,6 +9,9 @@ public class SwipeDetect : MonoBehaviour
 {
     public static SwipeDetect _swipeDetectInst;
 
+    public delegate void OnTurn();
+    public event OnTurn onTurn;
+
     [SerializeField] private float leftDist;
     [SerializeField] private float rightDist;
     [SerializeField] private float upDist;
@@ -71,11 +74,15 @@ public class SwipeDetect : MonoBehaviour
                 {
                     if (fingerDown.y - fingerUp.y > 0 && upMove && isMove)
                     {
+                        onTurn?.Invoke();
                         transform.localPositionTransition(new Vector3(transform.position.x, upDist, -2), 0.5f);
+                        isMove = false;
                     }
                     else if (fingerDown.y - fingerUp.y < 0 && downMove && isMove)
                     {
+                        onTurn?.Invoke();
                         transform.localPositionTransition(new Vector3(transform.position.x, downDist, -2), 0.5f);
+                        isMove = false;
                     }
                     fingerUp = fingerDown;
                 }
@@ -84,11 +91,15 @@ public class SwipeDetect : MonoBehaviour
                 {
                     if (fingerDown.x - fingerUp.x > 0 && rightMove && isMove)
                     {
+                        onTurn?.Invoke();
                         transform.localPositionTransition(new Vector3(rightDist, transform.position.y, -2), 0.5f);
+                        isMove = false;
                     }
                     else if (fingerDown.x - fingerUp.x < 0 && leftMove && isMove)
                     {
+                        onTurn?.Invoke();
                         transform.localPositionTransition(new Vector3(leftDist, transform.position.y, -2), 0.5f);
+                        isMove = false;
                     }
                     fingerUp = fingerDown;
                 }
@@ -139,11 +150,13 @@ public class SwipeDetect : MonoBehaviour
         {
             if (startMousePos.y - endMousePos.y < 0 && upMove && isMove)
             {
+                onTurn?.Invoke();
                 transform.localPositionTransition(new Vector3(transform.position.x, upDist, transform.position.z), 0.5f);
                 isMove = false;
             }
             else if (startMousePos.y - endMousePos.y > 0 && downMove && isMove)
             {
+                onTurn?.Invoke();
                 transform.localPositionTransition(new Vector3(transform.position.x, downDist, transform.position.z), 0.5f);
                 isMove = false;
             }
@@ -153,11 +166,13 @@ public class SwipeDetect : MonoBehaviour
         {
             if (startMousePos.x - endMousePos.x < 0 && rightMove && isMove)
             {
+                onTurn?.Invoke();
                 transform.localPositionTransition(new Vector3(rightDist, transform.position.y, transform.position.z), 0.5f);
                 isMove = false;
             }
             else if (startMousePos.x - endMousePos.x > 0 && leftMove && isMove)
             {
+                onTurn?.Invoke();
                 transform.localPositionTransition(new Vector3(leftDist, transform.position.y, transform.position.z), 0.5f);
                 isMove = false;
             }
