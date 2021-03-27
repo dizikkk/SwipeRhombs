@@ -17,6 +17,8 @@ public class DoTweenManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI retryLevelText;
     [SerializeField] private TextMeshProUGUI changeLevelText;
 
+    [SerializeField] private CanvasGroup menuCanvas;
+
     [SerializeField] private Image bckLevelPanel;
 
     [SerializeField] private GameObject freeTrialTextGO;
@@ -29,6 +31,7 @@ public class DoTweenManager : MonoBehaviour
     public GameObject FreeTrialTextGO { get => freeTrialTextGO; set => freeTrialTextGO = value; }
     public Image BckLevelPanel { get => bckLevelPanel; set => bckLevelPanel = value; }
     public TextMeshProUGUI ChangeLevelText { get => changeLevelText; set => changeLevelText = value; }
+    public CanvasGroup MenuCanvas { get => menuCanvas; set => menuCanvas = value; }
 
     // Start is called before the first frame update
 
@@ -65,7 +68,7 @@ public class DoTweenManager : MonoBehaviour
     #region ChooseLevelMenu
     private void OpenChooseLevelMenu()
     {
-        menu.DOAnchorPos(new Vector2(75f, -75f), 0.5f);
+        menu.DOAnchorPos(new Vector2(95f, -75f), 0.5f);
         slideBtn.DORotate(new Vector3(0f, 0f, -180f), 0.5f);
         isMenuOpen = true;
     }
@@ -73,7 +76,7 @@ public class DoTweenManager : MonoBehaviour
 
     private void OpenMenu()
     {
-        menu.DOAnchorPos(new Vector2(190f, -75f), 0.5f);
+        menu.DOAnchorPos(new Vector2(230f, -75f), 0.5f);
         slideBtn.DORotate(new Vector3(0f, 0f, -180f), 0.5f);
         isMenuOpen = true;
     }
@@ -108,11 +111,14 @@ public class DoTweenManager : MonoBehaviour
     public void ShowLevel()
     {
         bckLevelPanel.DOFade(0f, 1f);
+        LoseLevel.Instance.IsMoving = true;
     }
 
     public void HideLevel()
     {
         CloseMenu();
+        CountTurnUIText.Instance.HideCountTurn();
+        menuCanvas.DOFade(0f, 1f);
         bckLevelPanel.DOFade(1f, 1f).OnComplete(ShowChangeLevelText);
         StartCoroutine(HideChangeLevelText());
     }
@@ -155,6 +161,7 @@ public class DoTweenManager : MonoBehaviour
     IEnumerator RetryCorrutine()
     {
         retryBtn.DORotate(new Vector3(0f, 0f, -720f), 1f);
+        CountTurnUIText.Instance.HideCountTurn();
         RetryHider();
         yield return new WaitForSeconds(0.7f);
         LevelManager._levelManagerInst.RestartLevel();
@@ -166,6 +173,7 @@ public class DoTweenManager : MonoBehaviour
     public void LoseLevelFromCount()
     {
         CountTurnUIText.Instance.HideCountTurn();
+        menuCanvas.DOFade(0f, 1f);
         bckLevelPanel.DOFade(1f, 1f);
         StartCoroutine("ShowLoseLevel");
     }
@@ -174,7 +182,15 @@ public class DoTweenManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         LoseLevelFromTurn.Instance.CanvasGroup.DOFade(1f, 1f);
-        LoseLevelFromTurn.Instance.adClicked += ShowLevel;
+        LoseLevelFromTurn.Instance.IsTimerOn = true;
+    }
+
+    public void RestartLevelFromCountTurn()
+    {
+        LoseLevelFromTurn.Instance.CanvasGroup.DOFade(0f, 1f).OnComplete(ShowLevel);
+        CountTurnUIText.Instance.ShowCountTurn(1f);
+        
+        LevelManager._levelManagerInst.RestartLevel();
     }
     #endregion
 }

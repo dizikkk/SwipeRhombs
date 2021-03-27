@@ -12,6 +12,8 @@ public class CountTurnUIText : MonoBehaviour
 
     [SerializeField] private CanvasGroup canvasGroup;
 
+    private float timeToShow;
+
     private void Awake()
     {
         Instance = this;
@@ -22,9 +24,9 @@ public class CountTurnUIText : MonoBehaviour
         LoseLevelFromTurn.Instance.adClicked += ShowCountTurn;
     }
 
-    public void ShowCountTurn()
+    public void ShowCountTurn(float timeToShow)
     {
-        StartCoroutine("ShowCountTurnCor");
+        StartCoroutine(ShowCountTurnCor(timeToShow));
     }
 
     public void HideCountTurn()
@@ -37,10 +39,11 @@ public class CountTurnUIText : MonoBehaviour
         countTurnText.text = turnCount.ToString();
     }
 
-    IEnumerator ShowCountTurnCor()
+    IEnumerator ShowCountTurnCor(float timeToShow)
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(timeToShow);
         TaskManager._taskManagerInst.UpdateTurnCount();
+        DoTweenManager._DoTweenManagerInst.MenuCanvas.DOFade(1f, 1f);
         canvasGroup.DOFade(1f, 1f);
     }
 }

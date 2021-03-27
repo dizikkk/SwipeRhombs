@@ -20,7 +20,7 @@ public class TaskManager : MonoBehaviour
     {
         _taskManagerInst = this;
         CountTurnUIText.Instance.UpdateCountTurn(turnCount);
-        CountTurnUIText.Instance.ShowCountTurn();
+        CountTurnUIText.Instance.ShowCountTurn(2f);
         changeLevelText = transform.gameObject.GetComponent<SetChangeLevelText>();
         StartCoroutine("SetChangeLevelText");
         SwipeDetect._swipeDetectInst.onTurn += ChangeTurnCount;
@@ -66,7 +66,7 @@ public class TaskManager : MonoBehaviour
         LevelManager._levelManagerInst.SwipeLevel();
     }
 
-    public void AddTurns()
+    public void AddTurns(float a)
     {
         turnCount += 5;
     }
