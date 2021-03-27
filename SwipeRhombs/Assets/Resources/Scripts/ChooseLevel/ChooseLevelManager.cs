@@ -8,7 +8,7 @@ public class ChooseLevelManager : MonoBehaviour
     public static ChooseLevelManager Instance;
 
     [SerializeField] private List<GameObject> connectLines;
-    [SerializeField] private List<GameObject> levelRhombs;
+    [SerializeField] private List<LevelRhomb> levelRhombs;
     [SerializeField] private GameObject hider;
 
     private string accessLevelNumKey;
@@ -38,7 +38,7 @@ public class ChooseLevelManager : MonoBehaviour
         hider.SetActive(true);
         for (int i = 0; i < levelRhombs.Count; i++)
         {
-            levelRhombs[i].SetActive(false);
+            levelRhombs[i].gameObject.SetActive(false);
         }
     }
 
@@ -47,22 +47,22 @@ public class ChooseLevelManager : MonoBehaviour
         hider.SetActive(false);
         for (int i = 0; i < levelRhombs.Count; i++)
         {
-            levelRhombs[i].SetActive(true);
+            levelRhombs[i].gameObject.SetActive(true);
         }
     }
 
-    public void MoveConnectLines(int curLevel)
+    /*public void MoveConnectLines(int curLevel)
     {
         var connectLineData = connectLines[curLevel].GetComponent<ConnectLineData>();
         var indexLevel = curLevel;
         indexLevel++;
         if (curLevel < connectLines.Count)
         {
-            if (indexLevel % 5 != 0)
+            if (indexLevel % 3 != 0)
             {
-                if (connectLines[curLevel].transform.position.x % 10 != 0)
+                if (connectLines[curLevel].transform.position.x % 5 != 0)
                 {
-                    if (indexLevel >= 6 && indexLevel <= 9)
+                    if (levelRhombs[curLevel].GetComponent<LevelRhomb>().isLeftDirection())
                         connectLines[curLevel].transform.localPositionTransition_X(connectLines[curLevel].transform.position.x - 5f, 0f);
                     else
                         connectLines[curLevel].transform.localPositionTransition_X(connectLines[curLevel].transform.position.x + 5f, 0f);
@@ -70,12 +70,12 @@ public class ChooseLevelManager : MonoBehaviour
             }
             else
             {
-                if (connectLines[curLevel].transform.position.y % 10 != 0)
+                if (connectLines[curLevel].transform.position.y % 5 != 0)
                     connectLines[curLevel].transform.localPositionTransition_Y(connectLines[curLevel].transform.position.y - 5f, 0f);
             }
         }
         connectLineData.SaveConnectLineData();
-    }
+    }*/
     
     public void LoadAccessLevelsData()
     {
@@ -83,8 +83,12 @@ public class ChooseLevelManager : MonoBehaviour
         var accessNumLevels = PlayerPrefs.GetInt(accessLevelNumKey) + 1;
         for (int i = 0; i < accessNumLevels; i++)
         {
+            var levelRhomb = levelRhombs[i].GetComponent<LevelRhomb>();
             var levelRhombCollider = levelRhombs[i].GetComponent<PolygonCollider2D>();
             levelRhombCollider.enabled = true;
+
+            if (i < accessNumLevels - 1)
+                levelRhomb.SetConnectLineToUnlockPosition();
         }
     }
 
@@ -97,8 +101,8 @@ public class ChooseLevelManager : MonoBehaviour
 
     public void AccessToLevelRhombs(int numbOfAccessRhomb)
     {
-        var levelRhombCollider = levelRhombs[numbOfAccessRhomb].GetComponent<PolygonCollider2D>();
-        levelRhombCollider.enabled = true;
+        var levelRhomb = levelRhombs[numbOfAccessRhomb]; ;
+        levelRhomb.GetComponent<Collider2D>().enabled = true;
         SaveAccessLevelsData(numbOfAccessRhomb);
     }
 
