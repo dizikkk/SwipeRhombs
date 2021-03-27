@@ -63,7 +63,6 @@ public class LevelManager : MonoBehaviour
             if (ChooseLevelManager.Instance.CheckToAccessLevelRhomb(countOfAccessLevels))
             {
                 ChooseLevelManager.Instance.AccessToLevelRhombs(countOfAccessLevels);
-                ChooseLevelManager.Instance.MoveConnectLines(curLvl);
             }
         }
 

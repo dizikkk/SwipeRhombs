@@ -64,7 +64,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Resources\Scripts\ChooseLevel\ChooseLevelManager.cs" />
-    <Compile Include="Assets\Resources\Scripts\ChooseLevel\ConnectLineData.cs" />
     <Compile Include="Assets\Resources\Scripts\ChooseLevel\LevelRhomb.cs" />
     <Compile Include="Assets\Resources\Scripts\CollisionRhombDetect.cs" />
     <Compile Include="Assets\Resources\Scripts\FinishRhomb.cs" />

@@ -3,12 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using DG.Tweening;
+using Lean.Transition;
 
 public class LevelRhomb : MonoBehaviour
 {
+    public static LevelRhomb Instance;
+    [SerializeField] private GameObject connectLine;
+    [SerializeField] private float unlockPositionX;
+    [SerializeField] private float unlockPositionY;
     private Transform _levelRhombColor;
     private int _levelNumb;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +39,15 @@ public class LevelRhomb : MonoBehaviour
     private void OnMouseExit()
     {
         _levelRhombColor.GetComponent<SpriteRenderer>().DOFade(0f, 0f);
+    }
+
+    public void SetConnectLineToUnlockPosition()
+    {
+        if (connectLine != null)
+        {
+            connectLine.transform.localPositionTransition_X(unlockPositionX, 0f);
+            connectLine.transform.localPositionTransition_Y(unlockPositionY, 0f);
+        }
     }
 
     private void OnMouseUpAsButton()
