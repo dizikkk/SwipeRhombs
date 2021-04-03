@@ -1623,6 +1623,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 070a56543fc0e3f43a6d2ed759b6519e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rhombs:
+  - {fileID: 1312257633717075554}
+  - {fileID: 1312257632805935742}
   countFinishRhomb: 0
   needFinishRhombToWin: 2
   turnCount: 7

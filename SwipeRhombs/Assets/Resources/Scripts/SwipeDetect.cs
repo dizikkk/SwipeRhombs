@@ -9,9 +9,6 @@ public class SwipeDetect : MonoBehaviour
 {
     public static SwipeDetect _swipeDetectInst;
 
-    public delegate void OnTurn();
-    public event OnTurn onTurn;
-
     [SerializeField] private float leftDist;
     [SerializeField] private float rightDist;
     [SerializeField] private float upDist;
@@ -253,6 +250,7 @@ public class SwipeDetect : MonoBehaviour
     IEnumerator OnCountCorrutine()
     {
         yield return new WaitForSeconds(0.5f);
-        onTurn?.Invoke();
+        if (TaskManager._taskManagerInst != null)
+            TaskManager._taskManagerInst.IsTurn = true;
     }
 }

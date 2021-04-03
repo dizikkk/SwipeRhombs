@@ -11,12 +11,18 @@ public class TaskManager : MonoBehaviour
     [SerializeField] private int turnCount;
     [SerializeField] private float countOfColumnOnLevel;
 
+    private bool isTurn;
+
     private const float NORMAL_CAMERA_DISTANCE = 45f;
 
     private SetChangeLevelText changeLevelText;
 
+    public delegate void OnTurn();
+    public event OnTurn onTurn;
+
     public int CountFinishRhomb { get => countFinishRhomb; set => countFinishRhomb = value; }
     public int TurnCount { get => turnCount; set => turnCount = value; }
+    public bool IsTurn { get => isTurn; set => isTurn = value; }
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +37,7 @@ public class TaskManager : MonoBehaviour
         changeLevelText = transform.gameObject.GetComponent<SetChangeLevelText>();
         StartCoroutine("SetChangeLevelText");
 
-        SwipeDetect._swipeDetectInst.onTurn += ChangeTurnCount;
+        onTurn += ChangeTurnCount;
         LoseLevelFromTurn.Instance.adClicked += AddTurns;
     }
 
@@ -39,6 +45,12 @@ public class TaskManager : MonoBehaviour
     {
         if (countFinishRhomb == needFinishRhombToWin && turnCount >= 0)
             FinishLevel();
+
+        if (isTurn)
+        {
+            onTurn?.Invoke();
+            isTurn = false;
+        }
     }
 
     private void ChangeTurnCount()
