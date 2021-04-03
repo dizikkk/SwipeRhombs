@@ -9,6 +9,9 @@ public class TaskManager : MonoBehaviour
     [SerializeField] private int countFinishRhomb;
     [SerializeField] private int needFinishRhombToWin;
     [SerializeField] private int turnCount;
+    [SerializeField] private float countOfColumnOnLevel;
+
+    private const float NORMAL_CAMERA_DISTANCE = 45f;
 
     private SetChangeLevelText changeLevelText;
 
@@ -19,17 +22,22 @@ public class TaskManager : MonoBehaviour
     void Start()
     {
         _taskManagerInst = this;
+
+        SetCameraDistance();
+
         CountTurnUIText.Instance.UpdateCountTurn(turnCount);
         CountTurnUIText.Instance.ShowCountTurn(2f);
+
         changeLevelText = transform.gameObject.GetComponent<SetChangeLevelText>();
         StartCoroutine("SetChangeLevelText");
+
         SwipeDetect._swipeDetectInst.onTurn += ChangeTurnCount;
         LoseLevelFromTurn.Instance.adClicked += AddTurns;
     }
 
     void Update()
     {
-        if (countFinishRhomb == needFinishRhombToWin)
+        if (countFinishRhomb == needFinishRhombToWin && turnCount >= 0)
             FinishLevel();
     }
 
@@ -43,12 +51,13 @@ public class TaskManager : MonoBehaviour
     {
         CountTurnUIText.Instance.UpdateCountTurn(turnCount);
 
-        if (turnCount <= 0)
+        if (turnCount <= 0 && countFinishRhomb != needFinishRhombToWin)
             LoseLevel.Instance.LevelLose();
     }
 
     public void FinishLevel()
     {
+        Debug.LogError("finish");
         DoTweenManager._DoTweenManagerInst.HideLevel();
         StartCoroutine(ChangeLevel());
     }
@@ -69,5 +78,19 @@ public class TaskManager : MonoBehaviour
     public void AddTurns(float a)
     {
         turnCount += 5;
+    }
+
+    private void SetCameraDistance()
+    {
+        var mainCamera = Camera.main;
+
+        if (countOfColumnOnLevel == 3)
+            mainCamera.orthographicSize = NORMAL_CAMERA_DISTANCE;
+        else if (countOfColumnOnLevel == 4)
+            mainCamera.orthographicSize = 50f;
+        else if (countOfColumnOnLevel == 5)
+            mainCamera.orthographicSize = 65f;
+        else if (countOfColumnOnLevel == 6)
+            mainCamera.orthographicSize = 75f;
     }
 }

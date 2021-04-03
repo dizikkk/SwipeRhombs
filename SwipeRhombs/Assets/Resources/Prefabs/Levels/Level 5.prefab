@@ -2612,7 +2612,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countFinishRhomb: 0
   needFinishRhombToWin: 2
-  turnCount: 228
+  turnCount: 4
+  countOfColumnOnLevel: 3
 --- !u!114 &4429946726758320633
 MonoBehaviour:
   m_ObjectHideFlags: 0

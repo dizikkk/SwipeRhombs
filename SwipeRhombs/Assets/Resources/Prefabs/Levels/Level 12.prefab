@@ -2607,6 +2607,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countFinishRhomb: 0
   needFinishRhombToWin: 2
+  turnCount: 20
+  countOfColumnOnLevel: 6
 --- !u!114 &172646340448927119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6242,7 +6244,7 @@ PrefabInstance:
     - target: {fileID: 3330529108224389631, guid: 6b550aaf4aa209240b7bd0057b8fcf63,
         type: 3}
       propertyPath: connectLinePos.z
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3330529108224389631, guid: 6b550aaf4aa209240b7bd0057b8fcf63,
         type: 3}
@@ -6793,7 +6795,7 @@ PrefabInstance:
     - target: {fileID: 3330529108224389631, guid: 6b550aaf4aa209240b7bd0057b8fcf63,
         type: 3}
       propertyPath: connectLinePos.z
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3330529108224389631, guid: 6b550aaf4aa209240b7bd0057b8fcf63,
         type: 3}

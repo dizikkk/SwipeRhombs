@@ -1888,7 +1888,7 @@ MonoBehaviour:
     downDist: -35
   rhombToUnlet: {fileID: 5665592057325373698}
   connectLine: {fileID: 4222853305231616172}
-  connectLinePos: {x: 21, y: 14, z: 1}
+  connectLinePos: {x: 21, y: 14, z: 0}
 --- !u!1 &2073415942270014581
 GameObject:
   m_ObjectHideFlags: 0
@@ -6578,7 +6578,7 @@ MonoBehaviour:
     downDist: 0
   rhombToUnlet: {fileID: 4918649410916855875}
   connectLine: {fileID: 710472566482922529}
-  connectLinePos: {x: 7, y: 14, z: 1}
+  connectLinePos: {x: 7, y: 14, z: 0}
 --- !u!1 &6801443289001520788
 GameObject:
   m_ObjectHideFlags: 0
@@ -6927,6 +6927,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countFinishRhomb: 0
   needFinishRhombToWin: 2
+  turnCount: 17
+  countOfColumnOnLevel: 6
 --- !u!114 &7080380388560007314
 MonoBehaviour:
   m_ObjectHideFlags: 0

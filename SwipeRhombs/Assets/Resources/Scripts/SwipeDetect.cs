@@ -74,14 +74,13 @@ public class SwipeDetect : MonoBehaviour
                 {
                     if (fingerDown.y - fingerUp.y > 0 && upMove && isMove)
                     {
-                        onTurn?.Invoke();
-                        transform.localPositionTransition(new Vector3(transform.position.x, upDist, -2), 0.5f);
+                        StartCoroutine("OnCountCorrutine");
                         isMove = false;
                     }
                     else if (fingerDown.y - fingerUp.y < 0 && downMove && isMove)
                     {
-                        onTurn?.Invoke();
                         transform.localPositionTransition(new Vector3(transform.position.x, downDist, -2), 0.5f);
+                        StartCoroutine("OnCountCorrutine");
                         isMove = false;
                     }
                     fingerUp = fingerDown;
@@ -91,14 +90,14 @@ public class SwipeDetect : MonoBehaviour
                 {
                     if (fingerDown.x - fingerUp.x > 0 && rightMove && isMove)
                     {
-                        onTurn?.Invoke();
                         transform.localPositionTransition(new Vector3(rightDist, transform.position.y, -2), 0.5f);
+                        StartCoroutine("OnCountCorrutine");
                         isMove = false;
                     }
                     else if (fingerDown.x - fingerUp.x < 0 && leftMove && isMove)
                     {
-                        onTurn?.Invoke();
                         transform.localPositionTransition(new Vector3(leftDist, transform.position.y, -2), 0.5f);
+                        StartCoroutine("OnCountCorrutine");
                         isMove = false;
                     }
                     fingerUp = fingerDown;
@@ -150,14 +149,14 @@ public class SwipeDetect : MonoBehaviour
         {
             if (startMousePos.y - endMousePos.y < 0 && upMove && isMove)
             {
-                onTurn?.Invoke();
                 transform.localPositionTransition(new Vector3(transform.position.x, upDist, transform.position.z), 0.5f);
+                StartCoroutine("OnCountCorrutine");
                 isMove = false;
             }
             else if (startMousePos.y - endMousePos.y > 0 && downMove && isMove)
             {
-                onTurn?.Invoke();
                 transform.localPositionTransition(new Vector3(transform.position.x, downDist, transform.position.z), 0.5f);
+                StartCoroutine("OnCountCorrutine");
                 isMove = false;
             }
         }
@@ -166,14 +165,14 @@ public class SwipeDetect : MonoBehaviour
         {
             if (startMousePos.x - endMousePos.x < 0 && rightMove && isMove)
             {
-                onTurn?.Invoke();
                 transform.localPositionTransition(new Vector3(rightDist, transform.position.y, transform.position.z), 0.5f);
+                StartCoroutine("OnCountCorrutine");
                 isMove = false;
             }
             else if (startMousePos.x - endMousePos.x > 0 && leftMove && isMove)
             {
-                onTurn?.Invoke();
                 transform.localPositionTransition(new Vector3(leftDist, transform.position.y, transform.position.z), 0.5f);
+                StartCoroutine("OnCountCorrutine");
                 isMove = false;
             }
         }
@@ -249,5 +248,11 @@ public class SwipeDetect : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(1);
+    }
+
+    IEnumerator OnCountCorrutine()
+    {
+        yield return new WaitForSeconds(0.5f);
+        onTurn?.Invoke();
     }
 }

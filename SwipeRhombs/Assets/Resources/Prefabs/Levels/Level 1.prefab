@@ -2152,6 +2152,7 @@ MonoBehaviour:
   countFinishRhomb: 0
   needFinishRhombToWin: 1
   turnCount: 5
+  countOfColumnOnLevel: 3
 --- !u!114 &3653241397158885982
 MonoBehaviour:
   m_ObjectHideFlags: 0

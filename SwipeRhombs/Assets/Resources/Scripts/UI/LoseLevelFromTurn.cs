@@ -60,7 +60,6 @@ public class LoseLevelFromTurn : MonoBehaviour
     {
         canvasGroup.DOFade(0f, 1f).OnComplete(DoTweenManager._DoTweenManagerInst.ShowLevel);
         timeLeft = timeForAd;
-        DoTweenManager._DoTweenManagerInst.RestartLevelFromCountTurn();
         isTimerOn = false;
         adClicked?.Invoke(1f);
     }

@@ -35,6 +35,7 @@ public class LoseLevel : MonoBehaviour
 
     public void LevelLose()
     {
+        Debug.LogError("lose");
         isMoving = false;
         StartCoroutine("LoseLevelCorroutine");
     }
