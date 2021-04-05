@@ -30,6 +30,7 @@ public class LoseLevelFromTurn : MonoBehaviour
     void Start()
     {
         timeLeft = timeForAd;
+        canvasGroup.interactable = false;
     }
 
     public void SetStartTime()
@@ -44,6 +45,7 @@ public class LoseLevelFromTurn : MonoBehaviour
         {
             int intToText = (int)timeLeft;
             adOfferCanvasGroup.DOFade(1f, 0f);
+            canvasGroup.interactable = true;
             timeLeft -= Time.deltaTime;
             timerText.text = intToText.ToString();
 
@@ -59,6 +61,7 @@ public class LoseLevelFromTurn : MonoBehaviour
     public void OnAdClick()
     {
         canvasGroup.DOFade(0f, 1f).OnComplete(DoTweenManager._DoTweenManagerInst.ShowLevel);
+        canvasGroup.interactable = false;
         timeLeft = timeForAd;
         isTimerOn = false;
         adClicked?.Invoke(1f);

@@ -188,6 +188,7 @@ public class DoTweenManager : MonoBehaviour
     public void RestartLevelFromCountTurn()
     {
         LoseLevelFromTurn.Instance.CanvasGroup.DOFade(0f, 1f).OnComplete(ShowLevel);
+        LoseLevelFromTurn.Instance.CanvasGroup.interactable = false;
         CountTurnUIText.Instance.ShowCountTurn(1f);
         
         LevelManager._levelManagerInst.RestartLevel();
