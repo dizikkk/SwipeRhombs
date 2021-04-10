@@ -35,13 +35,18 @@ public class DoTweenManager : MonoBehaviour
 
     // Start is called before the first frame update
 
+    private bool IsLastLevel()
+    {
+        return true;
+    }
+
     private void Awake()
     {
         _DoTweenManagerInst = this;
     }
     void Start()
     {
-
+        LevelManager._levelManagerInst.isLastLevel += IsLastLevel;
     }
 
     // Update is called once per frame
@@ -56,7 +61,7 @@ public class DoTweenManager : MonoBehaviour
         {
             if (chooseLevelHider.activeSelf == true)
                 OpenMenu();
-            else
+            else if (chooseLevelHider.activeSelf == false || IsLastLevel())
                 OpenChooseLevelMenu();
         }
         else
@@ -68,6 +73,7 @@ public class DoTweenManager : MonoBehaviour
     #region ChooseLevelMenu
     private void OpenChooseLevelMenu()
     {
+        Debug.LogError("ChooseLevel");
         menu.DOAnchorPos(new Vector2(95f, -75f), 0.5f);
         slideBtn.DORotate(new Vector3(0f, 0f, -180f), 0.5f);
         isMenuOpen = true;
@@ -76,6 +82,7 @@ public class DoTweenManager : MonoBehaviour
 
     private void OpenMenu()
     {
+        Debug.LogError("def");
         menu.DOAnchorPos(new Vector2(230f, -75f), 0.5f);
         slideBtn.DORotate(new Vector3(0f, 0f, -180f), 0.5f);
         isMenuOpen = true;
@@ -96,6 +103,7 @@ public class DoTweenManager : MonoBehaviour
     #region Trial Text
     public void ShowFreeTrialText()
     {
+        menuCanvas.DOFade(1f, 0f);
         freeTrialTextGO.SetActive(true);
         freeTrialTextRect.DOAnchorPos(new Vector2(0f, 0f), 1f);
     }
@@ -118,7 +126,8 @@ public class DoTweenManager : MonoBehaviour
     {
         CloseMenu();
         CountTurnUIText.Instance.HideCountTurn();
-        menuCanvas.DOFade(0f, 1f);
+        if (!IsLastLevel())
+            menuCanvas.DOFade(0f, 1f);
         bckLevelPanel.DOFade(1f, 1f).OnComplete(ShowChangeLevelText);
         StartCoroutine(HideChangeLevelText());
     }

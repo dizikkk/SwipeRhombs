@@ -35,7 +35,7 @@ public class ChooseLevelManager : MonoBehaviour
 
     public void HideChooseLevel()
     {
-        hider.SetActive(true);
+        //hider.SetActive(true);
         for (int i = 0; i < levelRhombs.Count; i++)
         {
             levelRhombs[i].gameObject.SetActive(false);

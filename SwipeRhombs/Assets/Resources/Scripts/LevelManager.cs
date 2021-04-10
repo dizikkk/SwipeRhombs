@@ -7,9 +7,9 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager _levelManagerInst;
 
-    public delegate void OnStartLevel();
+    public delegate bool IsLastLevel();
+    public event IsLastLevel isLastLevel;
     public delegate void OnSwipeLevel();
-    public event OnStartLevel startLevel;
     public event OnSwipeLevel swipeLevel;
 
     private GameObject curObjLevel;
@@ -67,19 +67,30 @@ public class LevelManager : MonoBehaviour
         }
 
         curObjLevel.SetActive(false);
-        Destroy(curObjLevel);
         curLvl++;
         if (curLvl < levels.Length)
         {
+            //Если уровень не последний из пула, то делаем свайп уровня
+            Destroy(curObjLevel);
             curObjLevel = Instantiate(levels[curLvl], levels[curLvl].transform.position, Quaternion.identity);
+            swipeLevel?.Invoke();
         }
         else
         {
+            isLastLevel?.Invoke();
+            //Иначе поднимаем текст конца игры
             DoTweenManager._DoTweenManagerInst.ChangeLevelText.text = " ";
             DoTweenManager._DoTweenManagerInst.ShowFreeTrialText();
         }
-        swipeLevel?.Invoke();
     }
+
+    /*public bool IsLastLevel()
+    {
+        if (curLvl == levels.Length)
+            return true;
+        else
+            return false;
+    }*/
 
     public void RestartLevel()
     {

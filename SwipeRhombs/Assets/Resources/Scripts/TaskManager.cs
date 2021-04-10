@@ -69,7 +69,6 @@ public class TaskManager : MonoBehaviour
 
     public void FinishLevel()
     {
-        Debug.LogError("finish");
         DoTweenManager._DoTweenManagerInst.HideLevel();
         StartCoroutine(ChangeLevel());
     }
