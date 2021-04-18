@@ -84,14 +84,6 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    /*public bool IsLastLevel()
-    {
-        if (curLvl == levels.Length)
-            return true;
-        else
-            return false;
-    }*/
-
     public void RestartLevel()
     {
         if (curLvl < levels.Length)

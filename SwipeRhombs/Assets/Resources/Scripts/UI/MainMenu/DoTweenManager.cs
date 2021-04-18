@@ -59,10 +59,10 @@ public class DoTweenManager : MonoBehaviour
     {
         if (!isMenuOpen)
         {
-            if (chooseLevelHider.activeSelf == true)
-                OpenMenu();
-            else if (chooseLevelHider.activeSelf == false || IsLastLevel())
+            if (chooseLevelHider.activeSelf == false || freeTrialTextGO.activeSelf)
                 OpenChooseLevelMenu();
+            else
+                OpenMenu();
         }
         else
         {
